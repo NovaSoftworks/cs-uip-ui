@@ -1,27 +1,23 @@
 <script lang="ts">
-    import "../app.css";
+  import '../app.css';
 
-    import { page } from "$app/state";
+  import { page } from '$app/state';
 </script>
 
-<div class="min-h-screen bg-light flex items-center justify-center py-7 px-3.5 md:px-7">
-    <div class="text-center">
-        <h1 class="text-9xl font-bold text-medium">{page.status}</h1>
+<div class="bg-light flex min-h-screen items-center justify-center px-3.5 py-7 md:px-7">
+  <div class="text-center">
+    <h1 class="text-medium text-9xl font-bold">{page.status}</h1>
 
-        <p class="mt-3.5 text-3xl font-semibold text-medium">
-            Yikes! {page.error?.message ?? "Something went awry."}
-        </p>
+    <p class="text-medium mt-3.5 text-3xl font-semibold">
+      Yikes! {page.error?.message ?? 'Something went awry.'}
+    </p>
 
-        <p class="mt-3.5 text-m text-softened">
-            Please keep your seatbelt fastened while we guide you back to
-            safety.
-        </p>
+    <p class="text-m text-softened mt-3.5">Please keep your seatbelt fastened while we guide you back to safety.</p>
 
-        <a
-            href="/"
-            class="inline-block mt-7 px-8 py-3 bg-medium text-lighter font-semibold rounded-sm shadow hover:bg-softened transition"
-        >
-            Go back home
-        </a>
-    </div>
+    <a
+      href="/"
+      class="bg-medium text-lighter hover:bg-softened mt-7 inline-block rounded-sm px-8 py-3 font-semibold shadow transition">
+      Go back home
+    </a>
+  </div>
 </div>
