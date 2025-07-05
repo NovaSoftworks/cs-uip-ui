@@ -19,7 +19,7 @@
 
         <a
             href="/"
-            class="inline-block font-semibold mt-7 px-8 py-3 bg-medium text-lighter font-medium rounded-sm shadow hover:bg-softened transition"
+            class="inline-block mt-7 px-8 py-3 bg-medium text-lighter font-semibold rounded-sm shadow hover:bg-softened transition"
         >
             Go back home
         </a>
