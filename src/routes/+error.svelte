@@ -4,7 +4,7 @@
     import { page } from "$app/state";
 </script>
 
-<div class="min-h-screen bg-light flex items-center justify-center">
+<div class="min-h-screen bg-light flex items-center justify-center py-7 px-3.5 md:px-7">
     <div class="text-center">
         <h1 class="text-9xl font-bold text-medium">{page.status}</h1>
 
@@ -19,9 +19,9 @@
 
         <a
             href="/"
-            class="inline-block mt-7 px-8 py-3 bg-medium text-lighter font-medium rounded-sm shadow hover:bg-softened transition"
+            class="inline-block font-semibold mt-7 px-8 py-3 bg-medium text-lighter font-medium rounded-sm shadow hover:bg-softened transition"
         >
-            Go Back Home
+            Go back home
         </a>
     </div>
 </div>
