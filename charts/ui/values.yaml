@@ -4,7 +4,7 @@ deployment:
                         # - name: ghcr-auth
   image:
     repository: ghcr.io/novasoftworks/csuipui
-    tag: 0.1.0
+    tag: 0.2.0
     pullPolicy: IfNotPresent
   env: [] # Example: 
           # - name: PUBLIC_BASE_URL
