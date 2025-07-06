@@ -18,7 +18,7 @@
       <NSLogo class="fill-medium  md:h-6" />
     </div>
 
-    <form class="mt-14 space-y-7" action={flow.ui.action}>
+    <form class="mt-14 space-y-7" method="post" action={flow.ui.action}>
       <input type="hidden" name="flow" value={flow.id} />
 
       {#each flow.ui.nodes as { attributes, messages }}
