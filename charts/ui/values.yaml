@@ -1,0 +1,19 @@
+deployment:
+  replicaCount: 1
+  imagePullSecrets: []
+  image:
+    repository: ghcr.io/novasoftworks/csuipui
+    tag: 0.1.0
+    pullPolicy: IfNotPresent
+  env: []
+
+ingress:
+  enabled: false
+  className: ""
+  annotations: {}
+  host: ""
+  path: /
+  pathType: Prefix
+  tls:
+    enabled: false
+    secretName: ""

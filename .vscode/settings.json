@@ -2,5 +2,9 @@
   "prettier.documentSelectors": ["**/*.svelte"],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
-  "svelte.enable-ts-plugin": true
+  "svelte.enable-ts-plugin": true,
+  "yaml.validate": false,
+  "[yaml]": {
+    "editor.formatOnSave": false // Disable auto formatting for YAML files to prevent errors with Helm templates
+  }
 }

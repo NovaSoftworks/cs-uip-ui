@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "ui.fullname" . }}
+  labels: # labels on the deployment itself
+    app: {{ include "ui.name" . }}
+spec:
+  replicas: {{ .Values.deployment.replicaCount }}
+  selector:
+    matchLabels: # necessary to associate the pods to the deployment
+      app: {{ include "ui.name" . }}
+  template:
+    metadata:
+      labels: # labels on the pods
+        app: {{ include "ui.name" . }}
+    spec:
+    {{- with .Values.deployment.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+      containers:
+        - name: ui
+          image: "{{ .Values.deployment.image.repository }}:{{ .Values.deployment.image.tag }}"
+          imagePullPolicy: {{ .Values.deployment.image.pullPolicy }}
+          env:
+            {{- if .Values.deployment.env }}
+              {{- tpl (toYaml .Values.deployment.env) . | nindent 12 }}
+            {{- end }}
+          ports:
+            - containerPort: 3000
