@@ -3,7 +3,7 @@ deployment:
   imagePullSecrets: []  # Example:
                         # - name: ghcr-auth
   image:
-    repository: ghcr.io/novasoftworks/csuipui
+    repository: ghcr.io/novasoftworks/cs-uip-ui
     tag: 0.2.0
     pullPolicy: IfNotPresent
   env: [] # Example: 
