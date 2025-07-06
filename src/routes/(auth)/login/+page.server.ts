@@ -1,11 +1,13 @@
 import { redirect } from '@sveltejs/kit';
+import { env } from '$env/dynamic/public';
 
 export async function load({ url, fetch }) {
+  console.log(`Base url: ${env.PUBLIC_BASE_URL}`);
   const flowId = url.searchParams.get('flow');
 
   // If no login flow currently exists, we start a new one
   if (!flowId) {
-    const res = await fetch('https://account.novasoftworks.com/self-service/login/browser', {
+    const res = await fetch(`${env.PUBLIC_BASE_URL}/self-service/login/browser`, {
       redirect: 'manual',
       credentials: 'include'
     });
@@ -15,7 +17,7 @@ export async function load({ url, fetch }) {
   }
 
   // If there is a login flow, we retrieve metadata to build the form on the UI
-  const flowDataResponse = await fetch(`https://account.novasoftworks.com/self-service/login/flows?id=${flowId}`, {
+  const flowDataResponse = await fetch(`${env.PUBLIC_BASE_URL}/self-service/login/flows?id=${flowId}`, {
     credentials: 'include'
   });
 
