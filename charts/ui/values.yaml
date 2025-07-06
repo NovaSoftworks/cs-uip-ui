@@ -1,16 +1,34 @@
 deployment:
   replicaCount: 1
-  imagePullSecrets: []
+  imagePullSecrets: []  # Example:
+                        # - name: ghcr-auth
   image:
     repository: ghcr.io/novasoftworks/csuipui
     tag: 0.1.0
     pullPolicy: IfNotPresent
-  env: []
+  env: [] # Example: 
+          # - name: PUBLIC_BASE_URL
+          #   value: https://domain.example.com
+  readinessProbe:
+    enabled: false
+    initialDelaySeconds: 3
+    periodSeconds: 10
+    timeoutSeconds: 15
+    successThreshold: 1
+    failureThreshold: 5
+  livenessProbe:
+    enabled: false
+    initialDelaySeconds: 5
+    periodSeconds: 15
+    timeoutSeconds: 15
+    successThreshold: 1
+    failureThreshold: 5
 
 ingress:
   enabled: false
   className: ""
-  annotations: {}
+  annotations: {} # Example:
+                  #   annotation-key: annotation-value
   host: ""
   path: /
   pathType: Prefix

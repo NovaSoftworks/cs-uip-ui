@@ -1,12 +1,12 @@
-# Nova Softworks - User Identity Platform (UIP) UI Chart
+# Nova Softworks - User Identity Platform (UIP) UI chart
 
 This Helm chart deploys the Nova Softworks UIP user interface on a Kubernetes cluster. It is intended to be used with Argo CD or any GitOps workflow and is configured to serve the UI behind an optional Ingress.
 
-## Application Overview
+## Application overview
 
-This chart deploys a SvelteKit-based frontend application built for managing Nova Softworks user accounts.
+This chart deploys a SvelteKit-based frontend application built for Nova Softworks self service user account management. For all available options, please check the values.yaml file of the chart.
 
-### Environment Variables
+### Environment variables
 
 - `PUBLIC_BASE_URL`: **Required**. This must be the public URL where the application will be served (e.g., `https://account.novasoftworks.com`). This value must be set via the `deployment.env` list in your values file.
 
@@ -19,7 +19,7 @@ deployment:
       value: https://account.novasoftworks.com
 ```
 
-## Ingress Configuration
+## Ingress configuration
 
 To expose the application externally, enable Ingress and configure its properties:
 
@@ -39,7 +39,7 @@ ingress:
 
 This example assumes you're using `nginx-ingress` and `cert-manager` for TLS provisioning, but other setups are supported.
 
-## Image Pull Secrets (GHCR Authentication)
+## Image pull secrets (GHCR authentication)
 
 The default Docker image used in this chart is hosted on GitHub Container Registry (GHCR):
 
@@ -56,6 +56,19 @@ Even for public images, GHCR **requires authentication** in Kubernetes clusters.
 deployment:
   imagePullSecrets:
     - name: ghcr-auth
+```
+
+## Health checks (probes)
+
+You can define readiness and liveness probes to help Kubernetes monitor the health of the application pods:
+
+```yaml
+deployment:
+  readinessProbe:
+    enabled: true
+
+  livenessProbe:
+    enabled: true
 ```
 
 ## Notes
