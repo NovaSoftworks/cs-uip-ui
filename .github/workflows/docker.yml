@@ -1,0 +1,72 @@
+name: 'Docker: build & push'
+run-name: 'Docker: build & push - v${{ github.event.inputs.version }}'
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'SemVer image version (e.g. 1.2.3)'
+        required: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    outputs:
+      image_tag: ${{ steps.set_image_tag.outputs.image_tag }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set Docker image tag
+        id: set_image_tag
+        run: echo "image_tag=ghcr.io/${GITHUB_REPOSITORY@L}:${{ github.event.inputs.version }}" >> $GITHUB_OUTPUT
+
+      - name: Build Docker image
+        run: |
+          docker build  . --file Dockerfile --tag ${{ steps.set_image_tag.outputs.image_tag }}
+          docker tag ${{ steps.set_image_tag.outputs.image_tag }} ghcr.io/${GITHUB_REPOSITORY@L}:latest
+
+      - name: Save Docker image
+        run: docker save ${{ steps.set_image_tag.outputs.image_tag }} ghcr.io/${GITHUB_REPOSITORY@L}:latest -o image.tar
+
+      - name: Upload Docker image as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: docker_image
+          path: image.tar
+
+      - name: Tag the commit
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git tag v${{ github.event.inputs.version }}
+          git push origin v${{ github.event.inputs.version }}
+
+  push:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Download Docker image artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: docker_image
+          path: .
+
+      - name: Load Docker image
+        run: docker load -i image.tar
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Push Docker images
+        run: |
+          docker push ${{ needs.build.outputs.image_tag }}
+          docker push ghcr.io/${GITHUB_REPOSITORY@L}:latest
