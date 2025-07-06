@@ -30,7 +30,7 @@
     {@render children()}
   </main>
 
-  <footer class="bg-dark row-start-3 pb-7 md:col-start-2">
+  <footer class="row-start-3 pb-7 md:col-start-2">
     <Footer />
   </footer>
 </div>
