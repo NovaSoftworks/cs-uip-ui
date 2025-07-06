@@ -23,8 +23,8 @@
     <LanguageIcon class="h-5 w-5 fill-current" />
     <span>English</span>
   </div>
-  <button class="hover:text-softened flex cursor-pointer items-center space-x-1">
+  <a href="/logout" class="hover:text-softened flex cursor-pointer items-center space-x-1">
     <LogoutIcon class="h-5 w-5 fill-current" />
     <span>Log out</span>
-  </button>
+  </a>
 </div>

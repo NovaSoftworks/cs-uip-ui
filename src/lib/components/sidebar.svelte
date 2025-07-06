@@ -55,9 +55,9 @@
       name="Settings"
       active={$page.url.pathname === '/settings'}
       closeSidebar={props.closeSidebar} />
-    <button class="hover:bg-dark flex h-14 w-[100%] cursor-pointer items-center space-x-3 px-14">
+    <a href="/logout" class="hover:bg-dark flex h-14 w-[100%] cursor-pointer items-center space-x-3 px-14">
       <LogoutIcon class="h-5 w-5 fill-current" />
       <span>Log out</span>
-    </button>
+    </a>
   </div>
 </aside>
