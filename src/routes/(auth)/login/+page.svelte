@@ -1,3 +1,5 @@
+<!-- todo: fully automate form generation based on Kratos login flow -->
+
 <script lang="ts">
   import NSLogo from '$lib/assets/logo-single-line.svelte';
   import KratosInput from '$lib/components/auth/kratos-input.svelte';
@@ -5,8 +7,6 @@
 
   let { data } = $props();
   const flow = data.flow;
-
-  let passwordError = $state('');
 </script>
 
 <div class="w-full max-w-100 space-y-7">
@@ -37,6 +37,8 @@
 
       <button
         type="submit"
+        name="method"
+        value="password"
         class="bg-accent text-lighter hover:bg-accent/10 hover:text-accent w-full cursor-pointer rounded-sm py-2.5 font-semibold transition">
         Log in
       </button>
