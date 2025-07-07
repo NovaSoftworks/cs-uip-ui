@@ -25,7 +25,7 @@
       {#if uiMessages && uiMessages.length}
         {#each uiMessages as { text }}
           {#if text.length}
-            <div class="bg-ko/10 text-ko mb-3.5 rounded-sm px-3.5 py-2.5">{text}</div>
+            <div class="bg-ko/10 text-ko rounded-sm px-3.5 py-2.5">{text}</div>
           {/if}
         {/each}
       {/if}
