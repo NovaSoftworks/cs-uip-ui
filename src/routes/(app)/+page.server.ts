@@ -49,7 +49,7 @@ export const load = async ({ cookies, fetch }) => {
 function anonymizeEmail(email: string): string {
   const [localPart, domain] = email.split('@');
   const firstLetter = localPart.charAt(0);
-  return `${firstLetter}${'*'.repeat(domain.length - 1)}@${domain}`;
+  return `${firstLetter}${'*'.repeat(localPart.length - 1)}@${domain}`;
 }
 
 function anonymizeName(name: string): string {
