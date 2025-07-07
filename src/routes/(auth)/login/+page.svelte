@@ -21,10 +21,10 @@
 
     <form class="mt-14 space-y-7" method="post" action={flow.ui.action}>
       {#if flow.ui.messages && flow.ui.messages.length}
-        {#each flow.ui.messages as { messageText }}
-          <div class="bg-ko/10 border-ko text-ko mb-4 rounded border p-3">
-            {messageText}
-          </div>
+        {#each flow.ui.messages as { text }}
+          {#if text.length}
+            <div class="bg-ko/10 text-ko mb-3.5 rounded-sm px-3.5 py-2.5">{text[0].text}</div>
+          {/if}
         {/each}
       {/if}
       <input type="hidden" name="flow" value={flow.id} />
