@@ -7,7 +7,9 @@
 
   let { data } = $props();
   const flow = data.flow;
+  const uiMessages = flow.ui.messages || [];
   console.log(flow);
+  console.log(uiMessages);
 </script>
 
 <div class="w-full max-w-100 space-y-7">
@@ -20,10 +22,10 @@
     </div>
 
     <form class="mt-14 space-y-7" method="post" action={flow.ui.action}>
-      {#if flow.ui.messages && flow.ui.messages.length}
-        {#each flow.ui.messages as { text }}
+      {#if uiMessages && uiMessages.length}
+        {#each uiMessages as { text }}
           {#if text.length}
-            <div class="bg-ko/10 text-ko mb-3.5 rounded-sm px-3.5 py-2.5">{text[0].text}</div>
+            <div class="bg-ko/10 text-ko mb-3.5 rounded-sm px-3.5 py-2.5">{text}</div>
           {/if}
         {/each}
       {/if}
