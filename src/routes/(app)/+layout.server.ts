@@ -7,17 +7,11 @@ const COOKIE_NAME = 'ory_kratos_session';
 
 export function load({ cookies, url }) {
   if (DEBUG_MODE) {
-    console.log('DEBUG_MODE is enabled, skipping session check');
-    return {
-      message: 'Debug mode is enabled, skipping session check.'
-    };
+    return {};
   }
 
   const sessionCookie = cookies.get(COOKIE_NAME);
-  if (sessionCookie) {
-    console.log('Session cookie found:', sessionCookie);
-  } else {
-    console.log('No session cookie found, redirecting to /login');
+  if (!sessionCookie) {
     redirect(303, `/login?redirectTo=${url.pathname}`);
   }
 }

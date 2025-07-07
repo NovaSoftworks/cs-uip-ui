@@ -1,8 +1,48 @@
 import { redirect } from '@sveltejs/kit';
 import { env } from '$env/dynamic/public';
 
+const DEBUG_MODE = env.PUBLIC_DEBUG_MODE === 'true';
+
 export async function load({ url, fetch }) {
-  console.log(`Base url: ${env.PUBLIC_BASE_URL}`);
+  if (DEBUG_MODE) {
+    return {
+      flow: {
+        ui: {
+          nodes: [
+            {
+              attributes: {
+                name: 'identifier',
+                type: 'text',
+                required: true,
+                value: '',
+                label: 'Email or Username',
+                placeholder: 'Enter your email or username'
+              },
+              messages: [],
+              group: 'default',
+              type: 'input'
+            },
+            {
+              attributes: {
+                name: 'password',
+                type: 'password',
+                required: true,
+                value: '',
+                label: 'Password',
+                placeholder: 'Enter your password'
+              },
+              messages: [],
+              group: 'default',
+              type: 'input'
+            }
+          ],
+          messages: [],
+          action: `${env.PUBLIC_BASE_URL}/self-service/login?flow=debug`
+        }
+      }
+    };
+  }
+
   const flowId = url.searchParams.get('flow');
 
   // If no login flow currently exists, we start a new one
@@ -27,6 +67,5 @@ export async function load({ url, fetch }) {
   }
 
   const flow = await flowDataResponse.json();
-  console.log(flow);
   return { flow };
 }

@@ -1,0 +1,9 @@
+{
+  "title": "Login",
+  "welcome_back": "Welcome back to Nova",
+  "create_account_link": "Create your Nova account",
+  "cant_login_link": "Can't log in?",
+  "email_placeholder": "Email",
+  "password_placeholder": "Password",
+  "login_button": "Log in"
+}

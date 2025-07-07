@@ -1,0 +1,9 @@
+{
+  "title": "Connexion",
+  "welcome_back": "Bon retour sur Nova",
+  "create_account_link": "Créez votre compte Nova",
+  "cant_login_link": "Besoin d'aide pour vous connecter ?",
+  "email_placeholder": "E-mail",
+  "password_placeholder": "Mot de passe",
+  "login_button": "Se connecter"
+}

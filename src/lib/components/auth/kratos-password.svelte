@@ -1,6 +1,7 @@
 <script lang="ts">
   import VisibilityIcon from '$lib/assets/icons/visibility.svelte';
   import VisibilityOffIcon from '$lib/assets/icons/visibility-off.svelte';
+  import { t } from '$lib/translations';
 
   let { attributes, messages } = $props();
 
@@ -21,7 +22,7 @@
     type={passwordIsVisible ? 'text' : 'password'}
     name={attributes.name}
     autocomplete="current-password"
-    placeholder="Password"
+    placeholder={$t('login.password_placeholder')}
     value={attributes.value}
     required={attributes.required}
     disabled={attributes.disabled}

@@ -5,19 +5,19 @@
   import KratosInput from '$lib/components/auth/kratos-input.svelte';
   import KratosPassword from '$lib/components/auth/kratos-password.svelte';
 
+  import { t } from '$lib/translations';
+
   let { data } = $props();
   const flow = data.flow;
   const uiMessages = flow.ui.messages || [];
-  console.log(flow);
-  console.log(uiMessages);
 </script>
 
 <svelte:head>
-  <title>Login | Nova Softworks</title>
+  <title>{$t('login.title')} | Nova Softworks</title>
 </svelte:head>
 
 <div class="w-full max-w-100 space-y-7">
-  <h1 class="text-medium text-center text-2xl">Welcome back to Nova</h1>
+  <h1 class="text-medium text-center text-2xl">{$t('login.welcome_back')}</h1>
 
   <div class="bg-lighter rounded-sm px-3.5 py-7 shadow-sm md:px-7">
     <!-- LOGO -->
@@ -41,7 +41,12 @@
         {/if}
 
         {#if attributes.name === 'identifier'}
-          <KratosInput {attributes} {messages} inputmode="email" autocomplete="email" placeholder="Email" />
+          <KratosInput
+            {attributes}
+            {messages}
+            inputmode="email"
+            autocomplete="email"
+            placeholder={$t('login.email_placeholder')} />
         {/if}
 
         {#if attributes.name === 'password'}
@@ -54,13 +59,13 @@
         name="method"
         value="password"
         class="bg-accent text-lighter hover:bg-accent/10 hover:text-accent w-full cursor-pointer rounded-sm py-2.5 font-semibold transition">
-        Log in
+        {$t('login.login_button')}
       </button>
     </form>
 
     <div class="text-s text-accent mt-3.5 space-y-3.5 text-center font-semibold">
-      <a href="/creation" class="block hover:underline"> Create your Nova account </a>
-      <a href="/recovery" class="block hover:underline"> Can't log in? </a>
+      <a href="/creation" class="block hover:underline">{$t('login.create_account_link')}</a>
+      <a href="/recovery" class="block hover:underline">{$t('login.cant_login_link')}</a>
     </div>
   </div>
 </div>

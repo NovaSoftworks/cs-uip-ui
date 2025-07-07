@@ -20,8 +20,6 @@ export const load = async ({ cookies, fetch }) => {
 
   const sessionCookie = cookies.get(COOKIE_NAME);
 
-  console.log('Session cookie found:', sessionCookie);
-
   const res = await fetch(`${env.PUBLIC_BASE_URL}/sessions/whoami`, {
     headers: {
       Cookie: `${COOKIE_NAME}=${sessionCookie}`

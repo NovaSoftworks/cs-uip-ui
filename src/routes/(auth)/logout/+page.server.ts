@@ -2,8 +2,6 @@ import { redirect } from '@sveltejs/kit';
 import { env } from '$env/dynamic/public';
 
 export const load = async ({ cookies, fetch }) => {
-  console.log(`Base url: ${env.PUBLIC_BASE_URL}`);
-
   const res = await fetch(`${env.PUBLIC_BASE_URL}/self-service/logout/browser`, {
     headers: {
       Cookie: cookies
