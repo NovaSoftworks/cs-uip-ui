@@ -19,6 +19,10 @@
   }
 </script>
 
+<svelte:head>
+  <title>Account | Nova Softworks</title>
+</svelte:head>
+
 <div class="bg-light text-darker grid min-h-screen grid-rows-[auto_1fr_auto] md:grid-cols-[auto_1fr]">
   <Sidebar {sidebarOpen} {closeSidebar} />
 

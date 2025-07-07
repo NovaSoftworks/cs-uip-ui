@@ -12,6 +12,10 @@
   console.log(uiMessages);
 </script>
 
+<svelte:head>
+  <title>Login | Nova Softworks</title>
+</svelte:head>
+
 <div class="w-full max-w-100 space-y-7">
   <h1 class="text-medium text-center text-2xl">Welcome back to Nova</h1>
 
