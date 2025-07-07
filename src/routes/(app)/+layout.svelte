@@ -26,7 +26,7 @@
     <Header {toggleSidebar} />
   </header>
 
-  <main class="row-start-2 p-7 md:col-start-2">
+  <main class="row-start-2 p-7 md:col-start-2 md:px-56">
     {@render children()}
   </main>
 

@@ -26,10 +26,10 @@
 <!-- SIDEBAR -->
 <aside
   class="
-    bg-darker text-lighter fixed inset-y-0 left-0 z-10 w-84
-    max-w-[80%] transform
-    pt-7 transition-transform
-    md:static md:row-span-3 md:translate-x-0 md:border-0
+    bg-darker text-lighter md: fixed inset-y-0 left-0 z-10
+    w-84 max-w-[80%] transform pt-7
+    transition-transform md:static
+    md:row-span-3 md:max-w-none md:translate-x-0 md:border-0
 "
   class:-translate-x-full={!props.sidebarOpen}
   class:translate-x-0={props.sidebarOpen}>

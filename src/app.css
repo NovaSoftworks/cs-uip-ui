@@ -2,7 +2,7 @@
 
 @layer components {
   .page-title {
-    @apply text-5xl;
+    @apply text-medium mb-7 text-3xl md:text-5xl;
   }
 }
 
