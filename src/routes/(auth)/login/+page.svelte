@@ -7,6 +7,7 @@
 
   let { data } = $props();
   const flow = data.flow;
+  console.log(flow);
 </script>
 
 <div class="w-full max-w-100 space-y-7">
@@ -19,6 +20,13 @@
     </div>
 
     <form class="mt-14 space-y-7" method="post" action={flow.ui.action}>
+      {#if flow.ui.messages && flow.ui.messages.length}
+        {#each flow.ui.messages as { messageText }}
+          <div class="bg-ko/10 border-ko text-ko mb-4 rounded border p-3">
+            {messageText}
+          </div>
+        {/each}
+      {/if}
       <input type="hidden" name="flow" value={flow.id} />
 
       {#each flow.ui.nodes as { attributes, messages }}

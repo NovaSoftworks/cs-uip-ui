@@ -27,5 +27,6 @@ export async function load({ url, fetch }) {
   }
 
   const flow = await flowDataResponse.json();
+  console.log(flow);
   return { flow };
 }
