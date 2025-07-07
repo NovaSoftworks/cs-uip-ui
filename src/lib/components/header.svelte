@@ -4,6 +4,8 @@
   import LanguageIcon from '$lib/assets/icons/language.svelte';
   import LogoutIcon from '$lib/assets/icons/logout.svelte';
 
+  import { t } from '$lib/translations';
+
   let props = $props();
 </script>
 
@@ -25,6 +27,6 @@
   </div>
   <a href="/logout" class="hover:text-softened flex cursor-pointer items-center space-x-1">
     <LogoutIcon class="h-5 w-5 fill-current" />
-    <span>Log out</span>
+    <span>{$t('header.logout')}</span>
   </a>
 </div>

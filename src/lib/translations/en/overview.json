@@ -1,0 +1,10 @@
+{
+  "welcome_back": "Welcome back, {name}!",
+  "summary.title": "Account Summary",
+  "summary.status": "Status",
+  "summary.last_login": "Last login",
+  "info.title": "Your information",
+  "info.name": "Name",
+  "info.email": "Email",
+  "info.edit": "@:common.action.edit"
+}
