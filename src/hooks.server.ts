@@ -40,8 +40,7 @@ const authenticateSession = async (event: RequestEvent, logger: any) => {
 
   if (!sessionCookie) {
     logger.debug('Session cookie not found - redirecting to /login');
-    const redirectUrl = `/login?redirectTo=${pathname}`;
-    redirect(303, redirectUrl);
+    redirect(303, '/login');
   }
 
   logger.debug('Fetching session info');
@@ -59,7 +58,7 @@ const authenticateSession = async (event: RequestEvent, logger: any) => {
       },
       `Failed to retrieve session info - redirecting to /login`
     );
-    redirect(303, `/login?redirectTo=${pathname}`);
+    redirect(303, '/login');
   }
 
   const session = await response.json();
@@ -73,6 +72,6 @@ const authenticateSession = async (event: RequestEvent, logger: any) => {
 
   if (!event.locals.session.active) {
     logger.debug('Session is inactive - redirecting to /login');
-    redirect(303, `/login?redirectTo=${pathname}`);
+    redirect(303, '/login');
   }
 };
