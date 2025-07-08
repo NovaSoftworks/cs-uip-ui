@@ -15,16 +15,16 @@ export const load = async ({ locals, url }) => {
   }
 
   const session = locals.session;
-  logger.debug({ session: session.id }, 'Returning user info');
+  logger.debug({ session: session.id, response: session }, 'Returning user info');
   return {
     user: {
-      email: anonymizeEmail(locals.session.identity.traits.email),
+      email: anonymizeEmail(session.identity.traits.email),
       name: {
-        first: locals.session.identity.traits.name.first,
-        last: anonymize(locals.session.identity.traits.name.last)
+        first: session.identity.traits.name.first,
+        last: anonymize(session.identity.traits.name.last)
       },
-      verified: locals.session.identity.verifiable_addresses?.[0]?.verified ?? false,
-      lastLogin: formatDate(locals.session.authenticated_at)
+      verified: session.identity.verifiable_addresses?.[0]?.verified ?? false,
+      lastLogin: formatDate(session.authenticated_at)
     }
   };
 };

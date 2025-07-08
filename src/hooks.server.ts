@@ -1,7 +1,7 @@
 import { formatHttpResponse } from '$lib/formatting';
 import { BASE_URL, IS_OFFLINE } from '$lib/server/config';
 import { createLogger } from '$lib/server/logging';
-import { type Handle, redirect } from '@sveltejs/kit';
+import { type Handle, redirect, type RequestEvent } from '@sveltejs/kit';
 
 const SESSION_COOKE_NAME = 'ory_kratos_session';
 
@@ -34,7 +34,7 @@ export const handle: Handle = async ({ event, resolve }) => {
  * @param logger - A logger instance used for debug and warning messages.
  * @throws Redirects to the login page if the session is missing, invalid, or inactive.
  */
-const authenticateSession = async (event: any, logger: any) => {
+const authenticateSession = async (event: RequestEvent, logger: any) => {
   const pathname = event.url.pathname;
   const sessionCookie = event.cookies.get(SESSION_COOKE_NAME);
 
