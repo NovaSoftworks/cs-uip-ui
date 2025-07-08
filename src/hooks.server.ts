@@ -55,7 +55,7 @@ const authenticateSession = async (event: RequestEvent, logger: any) => {
   if (!response.ok) {
     logger.warn(
       {
-        response: await formatHttpResponse(response)
+        details: await formatHttpResponse(response)
       },
       `Failed to retrieve session info - redirecting to /login`
     );

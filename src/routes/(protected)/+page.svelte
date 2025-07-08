@@ -1,12 +1,9 @@
 <script lang="ts">
   let { data } = $props();
-  const email = data.email;
-  const name = data.name;
-  const verified = data.verified;
-  const lastLogin = data.lastLogin;
+  const user = data.user;
 </script>
 
-<h1 class="page-title">Welcome back, {name.first}!</h1>
+<h1 class="page-title">Welcome back, {user.name.first}!</h1>
 
 <div class="grid grid-cols-1 gap-x-14 gap-y-7 md:grid-cols-2 md:gap-y-14">
   <div class="bg-lighter rounded-sm p-7 shadow-sm">
@@ -17,11 +14,11 @@
     <div class="text-darker space-y-3.5 text-sm">
       <div class="flex justify-between">
         <span class="text-medium">Status</span>
-        <span class="text-darker">{verified ? 'Verified' : 'Unverified'}</span>
+        <span class="text-darker">{user.verified ? 'Verified' : 'Unverified'}</span>
       </div>
       <div class="flex justify-between">
         <span class="text-medium">Last login</span>
-        <span>{lastLogin}</span>
+        <span>{user.lastLogin}</span>
       </div>
     </div>
   </div>
@@ -34,11 +31,11 @@
     <div class="text-darker space-y-3.5 text-sm">
       <div class="flex justify-between">
         <span class="text-medium">Name</span>
-        <span class="text-darker">{name.first} {name.last}</span>
+        <span class="text-darker">{user.name.first} {user.name.last}</span>
       </div>
       <div class="flex justify-between">
         <span class="text-medium">Email</span>
-        <span>{email}</span>
+        <span>{user.email}</span>
       </div>
       <div class="mt-4 text-right">
         <a href="/details" class="text-accent text-sm font-semibold hover:underline"> Edit information </a>

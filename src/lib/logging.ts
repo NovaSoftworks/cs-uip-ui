@@ -11,7 +11,7 @@ const parentLogger = pino({
         options: {
           colorize: true,
           translateTime: 'UTC:yyyy-mm-dd HH:MM:ss',
-          include: 'level,response,time',
+          include: 'level,details,time',
           messageFormat: '[{environment}:uip-ui-client::{action}:{parameters}] {msg}'
         },
         level: LOG_LEVEL

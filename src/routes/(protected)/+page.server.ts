@@ -15,7 +15,7 @@ export const load = async ({ locals, url }) => {
   }
 
   const session = locals.session;
-  logger.debug({ session: session.id, response: session }, 'Returning user info');
+  logger.debug({ session: session.id }, 'Returning user info');
   return {
     user: {
       email: anonymizeEmail(session.identity.traits.email),

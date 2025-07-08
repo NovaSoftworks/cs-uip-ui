@@ -39,7 +39,7 @@ export const load = async ({ url, fetch }) => {
     logger.error(
       {
         parameters: flowId,
-        response: await formatHttpResponse(flowDataResponse)
+        details: await formatHttpResponse(flowDataResponse)
       },
       'Failed to retrieve login flow metadata - redirecting to /login'
     );
@@ -47,6 +47,14 @@ export const load = async ({ url, fetch }) => {
   }
 
   const flow = await flowDataResponse.json();
+
+  const uiMessages: {}[] = flow.ui.messages;
+  const errorMessages = uiMessages.filter((m: any) => m.type === 'error');
+
+  errorMessages.forEach((message: any) => {
+    logger.warn({ details: message.text }, 'Login flow response error');
+  });
+
   logger.debug({ parameters: flowId }, 'Returning login flow metadata');
   return { flow };
 };

@@ -29,7 +29,7 @@ export const load = async ({ cookies, fetch }) => {
   if (!res.ok) {
     logger.error(
       {
-        response: await formatHttpResponse(res)
+        details: await formatHttpResponse(res)
       },
       'Failed to log user out - redirecting to /'
     );
