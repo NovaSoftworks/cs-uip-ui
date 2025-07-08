@@ -1,0 +1,12 @@
+{
+  "welcome_back": "Bon retour, {{name}} !",
+  "summary.title": "Résumé du compte",
+  "summary.status": "Statut",
+  "summary.status.verified": "Vérifié",
+  "summary.status.unverified": "Non vérifié",
+  "summary.last_login": "Dernière connexion",
+  "info.title": "Vos informations",
+  "info.name": "Nom",
+  "info.email": "E-mail",
+  "info.edit": "Modifier"
+}

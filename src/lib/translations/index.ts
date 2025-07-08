@@ -15,8 +15,18 @@ const config = {
     },
     {
       locale: 'en',
+      key: 'sidebar',
+      loader: async () => (await import('./en/sidebar.json')).default
+    },
+    {
+      locale: 'en',
       key: 'login',
       loader: async () => (await import('./en/login.json')).default
+    },
+    {
+      locale: 'en',
+      key: 'overview',
+      loader: async () => (await import('./en/overview.json')).default
     },
     {
       locale: 'fr',
@@ -30,8 +40,18 @@ const config = {
     },
     {
       locale: 'fr',
+      key: 'sidebar',
+      loader: async () => (await import('./fr/sidebar.json')).default
+    },
+    {
+      locale: 'fr',
       key: 'login',
       loader: async () => (await import('./fr/login.json')).default
+    },
+    {
+      locale: 'fr',
+      key: 'overview',
+      loader: async () => (await import('./fr/overview.json')).default
     }
   ]
 };

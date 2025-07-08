@@ -7,15 +7,15 @@ import AppsIcon from '$lib/assets/icons/pages/apps.svelte';
 import NovaHubIcon from '$lib/assets/icons/pages/novahub.svelte';
 
 export interface NavLink {
-  name: string;
+  key: string;
   href: string;
   icon: Component;
 }
 
 export const navLinks: NavLink[] = [
-  { name: 'Overview', href: '/', icon: OverviewIcon },
-  { name: 'Details', href: '/details', icon: DetailsIcon },
-  { name: 'Security', href: '/security', icon: SecurityIcon },
-  { name: 'Apps', href: '/apps', icon: AppsIcon },
-  { name: 'NovaHub', href: '/novahub', icon: NovaHubIcon }
+  { key: 'sidebar.overview', href: '/', icon: OverviewIcon },
+  { key: 'sidebar.details', href: '/details', icon: DetailsIcon },
+  { key: 'sidebar.security', href: '/security', icon: SecurityIcon },
+  { key: 'sidebar.apps', href: '/apps', icon: AppsIcon },
+  { key: 'sidebar.novahub', href: '/novahub', icon: NovaHubIcon }
 ];

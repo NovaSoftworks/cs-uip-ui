@@ -2,13 +2,11 @@
   import LanguageIcon from '$lib/assets/icons/language.svelte';
 
   import { t } from '$lib/translations';
+  import LanguageSwitcher from './language-switcher.svelte';
 </script>
 
 <div class="flex flex-col items-center space-y-2 text-center">
-  <div class="text-softened flex cursor-not-allowed items-center space-x-1">
-    <LanguageIcon class="h-5 w-5 fill-current" />
-    <span class="text-s">English</span>
-  </div>
+  <LanguageSwitcher />
   <ul class="text-s text-medium border-softened mb-3.5 flex justify-center space-x-2 border-b pb-3.5">
     <li>
       <a href="#" class="hover:underline">{$t('footer.about')}</a>

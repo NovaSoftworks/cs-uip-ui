@@ -9,6 +9,8 @@
 
   import { page } from '$app/state';
 
+  import { t } from '$lib/translations';
+
   let props = $props();
 </script>
 
@@ -41,9 +43,9 @@
   </div>
 
   <nav class="mt-7 flex-1 md:mt-14" aria-label="main_navigation">
-    {#each navLinks as { name, href, icon }}
+    {#each navLinks as { key, href, icon }}
       {@const active = page.url.pathname === href}
-      <NavLink {href} {icon} {name} {active} closeSidebar={props.closeSidebar} />
+      <NavLink {href} {icon} name={$t(key)} {active} closeSidebar={props.closeSidebar} />
     {/each}
   </nav>
 
@@ -52,12 +54,12 @@
     <NavLink
       href="/settings"
       icon={SettingsIcon}
-      name="Settings"
+      name={$t('sidebar.settings')}
       active={page.url.pathname === '/settings'}
       closeSidebar={props.closeSidebar} />
     <a href="/logout" class="hover:bg-dark flex h-14 w-[100%] cursor-pointer items-center space-x-3 px-14">
       <LogoutIcon class="h-5 w-5 fill-current" />
-      <span>Log out</span>
+      <span>{$t('sidebar.logout')}</span>
     </a>
   </div>
 </aside>
