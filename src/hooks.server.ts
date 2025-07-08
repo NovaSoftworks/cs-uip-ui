@@ -62,7 +62,13 @@ const authenticateSession = async (event: RequestEvent, logger: any) => {
     redirect(303, `/login?redirectTo=${pathname}`);
   }
 
-  event.locals.session = await response.json();
+  const session = await response.json();
+  const isNewLogin = !event.locals.session;
+  event.locals.session = session;
+
+  if (isNewLogin) {
+    logger.info({ session: event.locals.session.id }, 'Login successful');
+  }
   logger.debug({ session: event.locals.session.id }, 'Session retrieved successfully');
 
   if (!event.locals.session.active) {

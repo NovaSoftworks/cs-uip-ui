@@ -7,7 +7,7 @@ const logger = createLogger('/logout');
 
 const COOKIE_NAME = 'ory_kratos_session';
 
-export const load = async ({ cookies, fetch }) => {
+export const load = async ({ locals, cookies, fetch }) => {
   if (IS_OFFLINE) {
     logger.debug('Redirecting to /login');
     redirect(303, '/login');
@@ -15,7 +15,7 @@ export const load = async ({ cookies, fetch }) => {
 
   const sessionCookie = cookies.get(COOKIE_NAME);
 
-  logger.info({ session: sessionCookie }, 'Logging user out');
+  logger.info({ session: locals.session.id }, 'Logging user out');
   const res = await fetch(`${BASE_URL}/self-service/logout/browser`, {
     headers: {
       Cookie: cookies
@@ -29,6 +29,7 @@ export const load = async ({ cookies, fetch }) => {
   if (!res.ok) {
     logger.error(
       {
+        session: locals.session?.id,
         details: await formatHttpResponse(res)
       },
       'Failed to log user out - redirecting to /'
@@ -37,6 +38,9 @@ export const load = async ({ cookies, fetch }) => {
   }
 
   const data = await res.json();
+  logger.info({ session: locals.session.id }, 'Logout successful');
+  locals.session = null;
+  cookies.delete(COOKIE_NAME, { path: '/' });
   logger.debug('Redirecting to %s', data.logout_url);
   redirect(303, data.logout_url);
 };
