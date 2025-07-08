@@ -7,7 +7,7 @@
   import SettingsIcon from '$lib/assets/icons/pages/settings.svelte';
   import LogoutIcon from '$lib/assets/icons/logout.svelte';
 
-  import { page } from '$app/stores';
+  import { page } from '$app/state';
 
   let props = $props();
 </script>
@@ -42,7 +42,7 @@
 
   <nav class="mt-7 flex-1 md:mt-14" aria-label="main_navigation">
     {#each navLinks as { name, href, icon }}
-      {@const active = $page.url.pathname === href}
+      {@const active = page.url.pathname === href}
       <NavLink {href} {icon} {name} {active} closeSidebar={props.closeSidebar} />
     {/each}
   </nav>
@@ -53,7 +53,7 @@
       href="/settings"
       icon={SettingsIcon}
       name="Settings"
-      active={$page.url.pathname === '/settings'}
+      active={page.url.pathname === '/settings'}
       closeSidebar={props.closeSidebar} />
     <a href="/logout" class="hover:bg-dark flex h-14 w-[100%] cursor-pointer items-center space-x-3 px-14">
       <LogoutIcon class="h-5 w-5 fill-current" />
