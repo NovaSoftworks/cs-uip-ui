@@ -36,7 +36,6 @@ export const load = async ({ url, fetch }) => {
 
   // If an error occured, start over
   if (!flowDataResponse.ok) {
-    flowDataResponse.statusText;
     logger.error(
       {
         parameters: flowId,

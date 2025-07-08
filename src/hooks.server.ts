@@ -3,15 +3,12 @@ import { BASE_URL, IS_OFFLINE } from '$lib/server/config';
 import { createLogger } from '$lib/server/logging';
 import { type Handle, redirect } from '@sveltejs/kit';
 
-const publicPages = ['/login', '/creation', '/verification', '/recovery', '/health'];
-
 const SESSION_COOKE_NAME = 'ory_kratos_session';
 
 export const handle: Handle = async ({ event, resolve }) => {
   const pathname = event.url.pathname;
-  const isPublic = publicPages.some(page => pathname.startsWith(page));
+  const isPublic = !event.route.id || event.route.id?.startsWith('/(public)');
   const logger = createLogger(pathname);
-
   if (IS_OFFLINE) {
     return await resolve(event);
   }
