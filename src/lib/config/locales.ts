@@ -1,9 +1,11 @@
 export interface Locale {
   locale: string;
-  name: string;
+  displayName: string;
 }
 
-export const locales: Locale[] = [
-  { locale: 'en', name: 'English' },
-  { locale: 'fr', name: 'Français' }
+export const supportedLocales: Locale[] = [
+  { locale: 'en', displayName: 'English' },
+  { locale: 'fr', displayName: 'Français' }
 ];
+
+export const fallbackLocale = supportedLocales[0].locale;

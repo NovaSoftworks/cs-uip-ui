@@ -19,6 +19,8 @@ deployment:
       value: https://account.novasoftworks.com
 ```
 
+See the [main project README](../../README.md) for all environment variables documentation.
+
 ## Ingress configuration
 
 To expose the application externally, enable Ingress and configure its properties:

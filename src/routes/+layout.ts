@@ -1,17 +1,24 @@
 import { loadTranslations } from '$lib/translations';
-import { env } from '$env/dynamic/public';
 
-const DEBUG_MODE = env.PUBLIC_DEBUG_MODE === 'true';
+export const load = async ({ data }) => {
+  const locale = data.locale;
 
-export const load = async ({ url }) => {
-  if (DEBUG_MODE) {
-  }
-
-  const { pathname } = url;
-
-  const initLocale = 'fr';
-
-  await loadTranslations(initLocale, pathname);
-
-  return {};
+  await loadTranslations(locale);
+  return { locale };
 };
+
+/**
+ * Extracts the preferred locale from the Accept-Language header of the request.
+ * @param request The incoming request object.
+ * @returns A string representing the preferred locale, or undefined if not found.
+ */
+function extractPreferredLocale(request: Request): string | undefined {
+  const acceptLanguage = request.headers.get('accept-language');
+  if (acceptLanguage) {
+    const languages = acceptLanguage
+      .split(',')
+      .map(lang => lang.split(';')[0])
+      .map(lang => lang.split('-')[0]); // Remove region codes (en-US -> en)
+    return languages[0];
+  }
+}

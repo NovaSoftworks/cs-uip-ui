@@ -1,17 +1,22 @@
 import { redirect } from '@sveltejs/kit';
-import { env } from '$env/dynamic/public';
+import { BASE_URL, IS_OFFLINE } from '$lib/config';
+import { createLogger } from '$lib/server/logging';
 
-const DEBUG_MODE = env.PUBLIC_DEBUG_MODE === 'true';
+import { anonymizeEmail, anonymize } from '$lib/server/privacy';
+import { formatDate, formatHttpResponse } from '$lib/formatting';
 
 const COOKIE_NAME = 'ory_kratos_session';
 
-export const load = async ({ cookies, fetch }) => {
-  if (DEBUG_MODE) {
+export const load = async ({ cookies, fetch, url }) => {
+  const logger = createLogger(url.pathname);
+
+  if (IS_OFFLINE) {
+    logger.debug('Returning sample user data');
     return {
-      email: anonymizeEmail('mymail@novamail.com'),
+      email: anonymizeEmail('john.silver@novamail.com'),
       name: {
-        first: 'Debug',
-        last: anonymizeName('User')
+        first: 'John',
+        last: anonymize('Silver')
       },
       verified: true,
       lastLogin: formatDate('2025-07-06T21:03:00Z')
@@ -19,8 +24,8 @@ export const load = async ({ cookies, fetch }) => {
   }
 
   const sessionCookie = cookies.get(COOKIE_NAME);
-
-  const res = await fetch(`${env.PUBLIC_BASE_URL}/sessions/whoami`, {
+  logger.debug({ session: sessionCookie }, 'Fetching session metadata');
+  const res = await fetch(`${BASE_URL}/sessions/whoami`, {
     headers: {
       Cookie: `${COOKIE_NAME}=${sessionCookie}`
     },
@@ -28,37 +33,25 @@ export const load = async ({ cookies, fetch }) => {
   });
 
   if (!res.ok) {
+    logger.warn(
+      {
+        session: sessionCookie,
+        response: await formatHttpResponse(res)
+      },
+      `Failed to retrieve session info - redirecting to /login`
+    );
     redirect(303, '/login');
   }
 
   const session = await res.json();
-
+  logger.debug({ session: sessionCookie }, 'Returning user session');
   return {
     email: anonymizeEmail(session.identity.traits.email),
     name: {
       first: session.identity.traits.name.first,
-      last: anonymizeName(session.identity.traits.name.last)
+      last: anonymize(session.identity.traits.name.last)
     },
     verified: session.identity.verifiable_addresses?.[0]?.verified ?? false,
     lastLogin: formatDate(session.authenticated_at)
   };
 };
-
-function anonymizeEmail(email: string): string {
-  const [localPart, domain] = email.split('@');
-  const firstLetter = localPart.charAt(0);
-  return `${firstLetter}${'*'.repeat(localPart.length - 1)}@${domain}`;
-}
-
-function anonymizeName(name: string): string {
-  const firstLetter = name.charAt(0);
-  return `${firstLetter}${'*'.repeat(name.length - 1)}`;
-}
-
-function formatDate(dateString: string): string {
-  const date = new Date(dateString);
-  return new Intl.DateTimeFormat('en-US', {
-    dateStyle: 'long',
-    timeStyle: 'short'
-  }).format(date);
-}

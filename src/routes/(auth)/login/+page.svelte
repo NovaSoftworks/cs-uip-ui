@@ -25,7 +25,7 @@
       <NSLogo class="fill-medium  md:h-6" />
     </div>
 
-    <form class="mt-14 space-y-7" method="post" action={flow.ui.action}>
+    <form class="mt-14 space-y-7" method={flow.ui.method} action={flow.ui.action}>
       {#if uiMessages && uiMessages.length}
         {#each uiMessages as { text }}
           {#if text.length}
