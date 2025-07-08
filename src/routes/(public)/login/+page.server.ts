@@ -49,9 +49,9 @@ export const load = async ({ url, fetch }) => {
   const flow = await flowDataResponse.json();
 
   const uiMessages: {}[] = flow.ui.messages;
-  const errorMessages = uiMessages.filter((m: any) => m.type === 'error');
+  const errorMessages = uiMessages?.filter((m: any) => m.type === 'error');
 
-  errorMessages.forEach((message: any) => {
+  errorMessages?.forEach((message: any) => {
     logger.warn({ details: message.text }, 'Login flow response error');
   });
 
