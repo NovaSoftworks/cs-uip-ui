@@ -1,5 +1,5 @@
 export async function formatHttpResponse(response: Response): Promise<string> {
-  return `${response.status} ${response.statusText}: ${await response.text()}`;
+  return `${response.status}: ${response.statusText}`;
 }
 
 export function formatDate(dateString: string): string {

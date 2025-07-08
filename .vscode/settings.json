@@ -1,5 +1,7 @@
 {
-  "prettier.documentSelectors": ["**/*.svelte"],
+  "prettier.documentSelectors": [
+    "**/*.svelte"
+  ],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "svelte.enable-ts-plugin": true,
@@ -8,24 +10,25 @@
     "editor.formatOnSave": false // Disable auto formatting for YAML files to prevent errors with Helm templates
   },
   "files.exclude": {
-    "**/.git": false,
-    "**/.svn": false,
-    "**/.hg": false,
-    "**/.DS_Store": false,
-    "**/Thumbs.db": false,
-    "**/node_modules": false,
-    "**/build": false,
-    "**/.svelte-kit": false,
-    "**/.vscode": false,
-    "**/package-lock.json": false,
-    "**/vite.config.*": false,
-    "**/svelte.config.*": false,
-    "**/tsconfig.*": false,
-    "**/.env*": false,
-    "**/.prettierrc*": false,
-    "**/.dockerignore": false,
-    "**/.npmrc": false,
-    "**/.prettierignore": false,
-    "**/.gitignore": false
-  }
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/node_modules": true,
+    "**/build": true,
+    "**/.svelte-kit": true,
+    "**/.vscode": true,
+    "**/package-lock.json": true,
+    "**/vite.config.*": true,
+    "**/svelte.config.*": true,
+    "**/tsconfig.*": true,
+    "**/.env*": true,
+    "**/.prettierrc*": true,
+    "**/.dockerignore": true,
+    "**/.npmrc": true,
+    "**/.prettierignore": true,
+    "**/.gitignore": true
+  },
+  "workbench.editor.labelFormat": "short"
 }

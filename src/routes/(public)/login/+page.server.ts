@@ -3,7 +3,7 @@ import { createLogger } from '$lib/server/logging';
 import { BASE_URL, IS_OFFLINE } from '$lib/server/config';
 import { formatHttpResponse } from '$lib/formatting.js';
 
-import { flow as offlineFlow } from '$lib/offline-data/login';
+import { flow as offlineFlow } from '$lib/server/offline-data/login';
 
 const logger = createLogger('/login');
 
