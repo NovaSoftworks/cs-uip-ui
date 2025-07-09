@@ -4,4 +4,6 @@ export const load = async ({ data }) => {
   const locale = data.locale;
 
   await loadTranslations(locale);
+
+  return { locale };
 };

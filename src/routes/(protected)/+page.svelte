@@ -1,6 +1,9 @@
 <script lang="ts">
   let { data } = $props();
   const user = data.user;
+  const locale = data.locale;
+
+  import { formatDate } from '$lib/formatting';
 
   import { t } from '$lib/translations';
 </script>
@@ -21,7 +24,7 @@
       </div>
       <div class="flex justify-between">
         <span class="text-medium">{$t('overview.summary.last_login')}</span>
-        <span>{user.lastLogin}</span>
+        <span>{formatDate(user.lastLogin, locale)}</span>
       </div>
     </div>
   </div>

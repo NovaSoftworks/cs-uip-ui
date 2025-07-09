@@ -2,7 +2,6 @@ import { IS_OFFLINE } from '$lib/config';
 import { createLogger } from '$lib/server/logging';
 
 import { anonymizeEmail, anonymize } from '$lib/server/privacy';
-import { formatDate } from '$lib/formatting';
 
 import { user as offlineUser } from '$lib/server/offline-data/user';
 
@@ -24,7 +23,7 @@ export const load = async ({ locals, url }) => {
         last: anonymize(session.identity.traits.name.last)
       },
       verified: session.identity.verifiable_addresses?.[0]?.verified ?? false,
-      lastLogin: formatDate(session.authenticated_at)
+      lastLogin: session.authenticated_at
     }
   };
 };
