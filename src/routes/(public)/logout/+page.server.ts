@@ -11,7 +11,7 @@ export const load = async ({ locals, cookies, fetch }) => {
     redirect(303, '/login');
   }
 
-  logger.info({ session: locals.session.id }, 'Logging user out');
+  logger.debug({ session: locals.session.id }, 'Fetching logout URL');
   const res = await fetch(`${BASE_URL}/self-service/logout/browser`, {
     headers: {
       Cookie: cookies
@@ -34,6 +34,6 @@ export const load = async ({ locals, cookies, fetch }) => {
   }
 
   const data = await res.json();
-  logger.debug('Redirecting to %s', data.logout_url);
+  logger.info({ session: locals.session.id }, 'Logging user out');
   redirect(303, data.logout_url);
 };
