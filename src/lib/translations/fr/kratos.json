@@ -1,0 +1,10 @@
+{
+  "4000006": "Email ou mot de passe invalide.",
+  "4000007": "Un compte avec cet email existe déjà. Veuillez vous connecter ou utiliser un autre email.",
+  "4010001": "Votre session de connexion a expiré. Veuillez réessayer.",
+  "4040001": "Votre session d'inscription a expiré. Veuillez recommencer.",
+  "4050001": "Votre session de paramètres a expiré. Veuillez actualiser et réessayer.",
+  "4060005": "La session de récupération a expiré. Veuillez demander un nouveau lien de récupération.",
+  "4070005": "La session de vérification a expiré. Veuillez demander un nouvel email de vérification.",
+  "default": "Une erreur s'est produite. Veuillez réessayer."
+}

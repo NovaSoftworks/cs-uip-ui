@@ -9,12 +9,11 @@ export const handle: Handle = async ({ event, resolve }) => {
   const pathname = event.url.pathname;
   const isPublic = !event.route.id || (event.route.id?.startsWith('/(public)') && event.url.pathname !== '/logout');
   const logger = createLogger(pathname);
-  if (IS_OFFLINE) {
-    return await resolve(event);
-  }
 
-  if (isPublic) {
-    return await resolve(event);
+  if (IS_OFFLINE || isPublic) {
+    const response = await resolve(event);
+
+    return response;
   }
 
   await authenticateSession(event, logger);

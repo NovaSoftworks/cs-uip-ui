@@ -1,0 +1,10 @@
+{
+  "4000006": "Invalid email or password.",
+  "4000007": "An account with this email already exists. Please log in or use another email.",
+  "4010001": "Your login session expired. Please try again.",
+  "4040001": "Your registration session expired. Please start over.",
+  "4050001": "Your settings session expired. Please refresh and try again.",
+  "4060005": "The recovery session expired. Please request a new recovery link.",
+  "4070005": "The verification session expired. Please request a new verification email.",
+  "default": "Something went wrong. Please try again."
+}
