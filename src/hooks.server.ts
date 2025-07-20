@@ -1,4 +1,4 @@
-import { formatHttpResponse } from '$lib/formatting';
+import { httpResponseToString } from '$lib/formatting';
 import { BASE_URL, IS_OFFLINE } from '$lib/server/config';
 import { createLogger } from '$lib/server/logging';
 import { type Handle, redirect, type RequestEvent } from '@sveltejs/kit';
@@ -53,7 +53,7 @@ const authenticateSession = async (event: RequestEvent, logger: any) => {
   if (!response.ok) {
     logger.warn(
       {
-        details: await formatHttpResponse(response)
+        details: await httpResponseToString(response)
       },
       `Failed to retrieve session info - redirecting to /login`
     );

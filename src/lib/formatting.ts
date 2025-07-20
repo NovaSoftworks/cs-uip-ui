@@ -1,4 +1,4 @@
-export async function formatHttpResponse(response: Response): Promise<string> {
+export async function httpResponseToString(response: Response): Promise<string> {
   return `${response.status}: ${response.statusText}`;
 }
 

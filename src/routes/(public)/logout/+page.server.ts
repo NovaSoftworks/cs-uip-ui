@@ -1,7 +1,7 @@
 import { redirect } from '@sveltejs/kit';
 import { BASE_URL, IS_OFFLINE } from '$lib/config';
 import { createLogger } from '$lib/server/logging';
-import { formatHttpResponse } from '$lib/formatting';
+import { httpResponseToString } from '$lib/formatting';
 
 const logger = createLogger('/logout');
 
@@ -26,7 +26,7 @@ export const load = async ({ locals, cookies, fetch }) => {
     logger.error(
       {
         session: locals.session?.id,
-        details: await formatHttpResponse(res)
+        details: await httpResponseToString(res)
       },
       'Failed to log user out - redirecting to /'
     );

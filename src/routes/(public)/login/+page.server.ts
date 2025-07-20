@@ -1,7 +1,7 @@
 import { redirect } from '@sveltejs/kit';
 import { createLogger } from '$lib/server/logging';
 import { BASE_URL, IS_OFFLINE } from '$lib/server/config';
-import { formatHttpResponse } from '$lib/formatting.js';
+import { httpResponseToString } from '$lib/formatting.js';
 
 import { flow as offlineFlow } from '$lib/server/offline-data/login';
 
@@ -39,7 +39,7 @@ export const load = async ({ url, fetch }) => {
     logger.error(
       {
         parameters: flowId,
-        details: await formatHttpResponse(flowDataResponse)
+        details: await httpResponseToString(flowDataResponse)
       },
       'Failed to retrieve login flow metadata - redirecting to /login'
     );
