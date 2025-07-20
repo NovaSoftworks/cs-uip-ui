@@ -42,19 +42,19 @@
             {messages}
             inputmode="email"
             autocomplete="email"
-            placeholder={$t('registration.email_placeholder')} />
+            placeholder={$t('creation.email_placeholder')} />
         {:else if attributes.name === 'traits.name.first'}
           <KratosInput
             {attributes}
             {messages}
             autocomplete="given-name"
-            placeholder={$t('registration.first_name_placeholder')} />
+            placeholder={$t('creation.first_name_placeholder')} />
         {:else if attributes.name === 'traits.name.last'}
           <KratosInput
             {attributes}
             {messages}
             autocomplete="family-name"
-            placeholder={$t('registration.last_name_placeholder')} />
+            placeholder={$t('creation.last_name_placeholder')} />
         {:else if attributes.name === 'password'}
           <KratosPassword {attributes} {messages} />
         {:else if attributes.type === 'submit'}
@@ -63,7 +63,7 @@
             name={attributes.name}
             value={attributes.value}
             class="bg-accent text-lighter hover:bg-accent/10 hover:text-accent w-full cursor-pointer rounded-sm py-2.5 font-semibold transition">
-            {attributes.value === 'profile' ? $t('registration.next_button') : $t('registration.submit_button')}
+            {$t('creation.submit_button')}
           </button>
         {/if}
       {/each}

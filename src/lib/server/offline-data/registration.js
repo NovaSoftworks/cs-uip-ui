@@ -12,6 +12,20 @@ export const flow = {
         type: 'input',
         group: 'default',
         attributes: {
+          name: 'csrf_token',
+          type: 'hidden',
+          value: 'drHiDpq55DCBM31sL29sJoixFoi5wT2bAueH4iZJbZp1D0LfhrasF1FgKkOaCpskCDxZY0/XQgZs+FzrkfqHJQ==',
+          required: true,
+          disabled: false,
+          node_type: 'input'
+        },
+        messages: [],
+        meta: {}
+      },
+      {
+        type: 'input',
+        group: 'password',
+        attributes: {
           name: 'traits.email',
           type: 'email',
           required: true,
@@ -24,7 +38,27 @@ export const flow = {
       },
       {
         type: 'input',
-        group: 'default',
+        group: 'password',
+        attributes: {
+          name: 'password',
+          type: 'password',
+          required: true,
+          autocomplete: 'new-password',
+          disabled: false,
+          node_type: 'input'
+        },
+        messages: [],
+        meta: {
+          label: {
+            id: 1070001,
+            text: 'Password',
+            type: 'info'
+          }
+        }
+      },
+      {
+        type: 'input',
+        group: 'password',
         attributes: {
           name: 'traits.name.first',
           type: 'text',
@@ -37,7 +71,7 @@ export const flow = {
       },
       {
         type: 'input',
-        group: 'default',
+        group: 'password',
         attributes: {
           name: 'traits.name.last',
           type: 'text',
@@ -49,25 +83,11 @@ export const flow = {
       },
       {
         type: 'input',
-        group: 'default',
-        attributes: {
-          name: 'csrf_token',
-          type: 'hidden',
-          value: '3NkFFqyJ6G07EdDnswDTuA/h8eU4MNd2S70zOJA1q/HfZ6XHsIagSutCh8gGZSS6j2y+Ds4mqOslougxJ4ZBTg==',
-          required: true,
-          disabled: false,
-          node_type: 'input'
-        },
-        messages: [],
-        meta: {}
-      },
-      {
-        type: 'input',
-        group: 'profile',
+        group: 'password',
         attributes: {
           name: 'method',
           type: 'submit',
-          value: 'profile',
+          value: 'password',
           disabled: false,
           node_type: 'input'
         },

@@ -1,0 +1,11 @@
+{
+  "title": "Création de compte",
+  "welcome": "Créez votre compte Nova",
+  "email_placeholder": "Email",
+  "password_placeholder": "Mot de passe",
+  "first_name_placeholder": "Prénom",
+  "last_name_placeholder": "Nom de famille (optionnel)",
+  "submit_button": "Inscription",
+  "already_question": "Vous avez déjà un compte ?",
+  "login_link": "Se connecter"
+}
