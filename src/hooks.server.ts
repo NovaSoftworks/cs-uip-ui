@@ -7,8 +7,11 @@ const SESSION_COOKE_NAME = 'ory_kratos_session';
 
 export const handle: Handle = async ({ event, resolve }) => {
   const pathname = event.url.pathname;
+  console.log(event.route);
   const routeId = event.route?.id;
+  console.log(routeId);
   const isPublic = !routeId || (!routeId.includes('/(protected)/') && event.url.pathname !== '/logout');
+  console.log(isPublic);
   const logger = createLogger(pathname);
 
   if (IS_OFFLINE || isPublic) {
