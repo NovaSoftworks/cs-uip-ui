@@ -7,21 +7,20 @@ const SESSION_COOKE_NAME = 'ory_kratos_session';
 
 export const handle: Handle = async ({ event, resolve }) => {
   const pathname = event.url.pathname;
-  console.log(event.route);
   const routeId = event.route?.id;
-  console.log(routeId);
   const isPublic = !routeId || (!routeId.includes('/(protected)/') && event.url.pathname !== '/logout');
-  console.log(isPublic);
   const logger = createLogger(pathname);
 
+  logger.debug(`Route ID: ${routeId}, Is Public: ${isPublic}`);
   if (IS_OFFLINE || isPublic) {
     const response = await resolve(event);
-
     return response;
   }
 
-  await authenticateSession(event, logger);
+  logger.debug(`Checking session...`);
 
+  await authenticateSession(event, logger);
+  logger.debug(`Authenticated session for route ID: ${routeId}`);
   return await resolve(event);
 };
 
