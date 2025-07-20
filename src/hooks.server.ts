@@ -7,20 +7,16 @@ const SESSION_COOKE_NAME = 'ory_kratos_session';
 
 export const handle: Handle = async ({ event, resolve }) => {
   const pathname = event.url.pathname;
-  const routeId = event.route?.id;
-  const isPublic = !routeId || (!routeId.includes('/(protected)/') && event.url.pathname !== '/logout');
   const logger = createLogger(pathname);
+  const routeId = event.route?.id;
+  const isPublic = !routeId || (!routeId.includes('/(protected)') && event.url.pathname !== '/logout');
 
-  logger.debug(`Route ID: ${routeId}, Is Public: ${isPublic}`);
   if (IS_OFFLINE || isPublic) {
     const response = await resolve(event);
     return response;
   }
 
-  logger.debug(`Checking session...`);
-
   await authenticateSession(event, logger);
-  logger.debug(`Authenticated session for route ID: ${routeId}`);
   return await resolve(event);
 };
 
@@ -37,7 +33,6 @@ export const handle: Handle = async ({ event, resolve }) => {
  * @throws Redirects to the login page if the session is missing, invalid, or inactive.
  */
 const authenticateSession = async (event: RequestEvent, logger: any) => {
-  const pathname = event.url.pathname;
   const sessionCookie = event.cookies.get(SESSION_COOKE_NAME);
 
   if (!sessionCookie) {
