@@ -19,6 +19,7 @@ export function hash(data: string): string {
  * @returns The anonymized string with only the first character visible.
  */
 export function anonymize(value: string): string {
+  if (!value || value.length === 0) return '';
   const firstLetter = value.charAt(0);
   return `${firstLetter}${'*'.repeat(value.length - 1)}`;
 }
