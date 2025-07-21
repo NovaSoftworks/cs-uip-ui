@@ -1,0 +1,8 @@
+{
+  "title": "Vérifiez votre e-mail",
+  "prompt": "Vous y êtes presque",
+  "email_sent_message": "Nous venons d'envoyer un lien de confirmation à ",
+  "link_instructions": "Cliquez sur le lien dans cet e-mail pour vérifier votre compte. Vous ne l'avez pas reçu ? Il se trouve peut-être dans votre dossier spam ou promotions.",
+  "resend_question": "Toujours rien ? Nous sommes là pour vous. ",
+  "resend_button": "Renvoyer l'e-mail"
+}

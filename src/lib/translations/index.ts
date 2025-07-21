@@ -1,7 +1,7 @@
 import i18n from 'sveltekit-i18n';
 
 const languages = ['en', 'fr'];
-const namespaces = ['footer', 'header', 'sidebar', 'login', 'creation', 'overview', 'kratos'];
+const namespaces = ['footer', 'header', 'sidebar', 'login', 'creation', 'verification', 'overview', 'kratos'];
 const loaders = languages.flatMap(locale =>
   namespaces.map(key => ({
     locale,

@@ -1,5 +1,6 @@
 {
   "4000006": "Invalid email or password.",
+  "4000010": "Your account isn't active yet. Please verify your email address to activate it.",
   "4000007": "An account with this email already exists. Please log in or use another email.",
   "4010001": "Your login session expired. Please try again.",
   "4040001": "Your registration session expired. Please start over.",
