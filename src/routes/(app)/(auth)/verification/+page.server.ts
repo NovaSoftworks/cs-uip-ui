@@ -46,6 +46,6 @@ export const load = async ({ url, fetch }) => {
   const flow = await flowResponse.json();
   const email = flow.ui.nodes.find((node: any) => node.attributes.name === 'email')?.attributes.value;
   const isVerified = flow.state === 'passed_challenge';
-  const errorMessages = flow.ui.messages.filter((msg: any) => msg.type === 'error');
+  const errorMessages: any[] = []; // todo
   return { email, isVerified, errorMessages, flow };
 };
