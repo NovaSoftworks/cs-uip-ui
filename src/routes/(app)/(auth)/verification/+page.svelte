@@ -4,10 +4,9 @@
   import { t } from '$lib/translations';
 
   let { data } = $props();
-  const { email, isVerified, errorMessages, flow } = data;
+  const { isVerified, flowUi } = data;
 
   console.log('Verification page data:', data);
-  console.log('Verification flow:', flow);
 </script>
 
 <svelte:head>
@@ -25,14 +24,14 @@
       <h1 class="text-medium text-3xl font-semibold">{$t('verification.heading_verified')}</h1>
       <p class="text-m text-softened">{$t('verification.subtext_verified')}</p>
       <a
-        href="/"
+        href="/login"
         class="bg-accent text-lighter hover:bg-accent/10 hover:text-accent inline-block rounded-sm px-8 py-3 font-semibold shadow transition">
-        {$t('verification.back_to_dashboard')}
+        {$t('verification.back_to_login')}
       </a>
     {:else}
       <h1 class="text-medium text-3xl font-semibold">{$t('verification.heading_pending')}</h1>
       <p class="text-m text-medium">
-        {$t('verification.email_sent')} <br /><span class="font-semibold">{email || '[your email]'}</span>
+        {$t('verification.email_sent')}
       </p>
       <p class="text-m text-medium">{$t('verification.check_spam')}</p>
       <!-- TODO: add resend verification link feature -->

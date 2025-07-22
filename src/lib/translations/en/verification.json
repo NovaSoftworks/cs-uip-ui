@@ -3,9 +3,9 @@
   "title_pending": "Verify your email",
   "heading_verified": "Your email has been verified!",
   "subtext_verified": "You can now access your Nova account.",
-  "back_to_dashboard": "Your account",
+  "back_to_login": "Back to log in",
   "heading_pending": "Please verify your email address",
-  "email_sent": "You're almost done! We sent a verification link to",
+  "email_sent": "You're almost done! We sent a verification link to your email address.",
   "check_spam": "Click on the link to activate your account. If you don't see it, make sure to check your spam folder.",
   "didnt_get_it": "Still can't find it?",
   "resend_button": "Resend verification email"
