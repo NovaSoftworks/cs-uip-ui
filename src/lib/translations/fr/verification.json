@@ -1,8 +1,12 @@
 {
-  "title": "Vérifiez votre e-mail",
-  "prompt": "Vous y êtes presque",
-  "email_sent_message": "Nous venons d'envoyer un lien de confirmation à ",
-  "link_instructions": "Cliquez sur le lien dans cet e-mail pour vérifier votre compte. Vous ne l'avez pas reçu ? Il se trouve peut-être dans votre dossier spam ou promotions.",
-  "resend_question": "Toujours rien ? Nous sommes là pour vous. ",
-  "resend_button": "Renvoyer l'e-mail"
+  "title_verified": "Email vérifié",
+  "title_pending": "Vérifiez votre email",
+  "heading_verified": "Votre email a été vérifié !",
+  "subtext_verified": "Vous pouvez maintenant accéder à votre compte Nova.",
+  "back_to_dashboard": "Votre compte",
+  "heading_pending": "Veuillez vérifier votre adresse email",
+  "email_sent": "Vous y êtes presque ! Nous avons envoyé un lien de vérification à",
+  "check_spam": "Cliquez sur le lien pour activer votre compte. Si vous ne le voyez pas, assurez-vous de vérifier votre dossier spam.",
+  "didnt_get_it": "Vous ne le trouvez toujours pas ?",
+  "resend_button": "Renvoyer l'email de vérification"
 }

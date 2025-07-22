@@ -1,8 +1,12 @@
 {
-  "title": "Verify your email",
-  "prompt": "You're nearly there",
-  "email_sent_message": "We just sent a confirmation link to ",
-  "link_instructions": "Click the link in that email to verify your account. Didn't receive it? It might be hanging out in your spam or promotions folder.",
-  "resend_question": "Still nothing? We've got you. ",
-  "resend_button": "Resend email"
+  "title_verified": "Email verified",
+  "title_pending": "Verify your email",
+  "heading_verified": "Your email has been verified!",
+  "subtext_verified": "You can now access your Nova account.",
+  "back_to_dashboard": "Your account",
+  "heading_pending": "Please verify your email address",
+  "email_sent": "You're almost done! We sent a verification link to",
+  "check_spam": "Click on the link to activate your account. If you don't see it, make sure to check your spam folder.",
+  "didnt_get_it": "Still can't find it?",
+  "resend_button": "Resend verification email"
 }
