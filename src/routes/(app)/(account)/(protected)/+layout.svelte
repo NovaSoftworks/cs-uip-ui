@@ -19,10 +19,6 @@
   }
 </script>
 
-<svelte:head>
-  <title>Account | Nova Softworks</title>
-</svelte:head>
-
 <div class="bg-light text-darker grid min-h-screen grid-rows-[auto_1fr_auto] md:grid-cols-[auto_1fr]">
   <Sidebar {sidebarOpen} {closeSidebar} />
 
@@ -30,7 +26,7 @@
     <Header {toggleSidebar} />
   </header>
 
-  <main class="row-start-2 p-7 md:col-start-2 md:px-56">
+  <main class="row-start-2 p-7 md:col-start-2 md:px-14">
     {@render children()}
   </main>
 

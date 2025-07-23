@@ -13,11 +13,11 @@
 </script>
 
 <svelte:head>
-  <title>{$t('login.title')} | Nova Softworks</title>
+  <title>{$t('pages.login.title')} | Nova Softworks</title>
 </svelte:head>
 
 <div class="w-full max-w-100 space-y-7">
-  <h1 class="text-medium text-center text-2xl">{$t('login.welcome_back')}</h1>
+  <h1 class="text-medium text-center text-2xl">{$t('pages.login.heading')}</h1>
 
   <div class="bg-lighter rounded-sm px-3.5 py-7 shadow-sm md:px-7">
     <!-- LOGO -->
@@ -44,7 +44,7 @@
             {messages}
             inputmode="email"
             autocomplete="email"
-            placeholder={$t('login.email_placeholder')} />
+            placeholder={$t('identity.placeholders.email')} />
         {/if}
 
         {#if attributes.name === 'password'}
@@ -57,13 +57,13 @@
         name="method"
         value="password"
         class="bg-accent text-lighter hover:bg-accent/10 hover:text-accent w-full cursor-pointer rounded-sm py-2.5 font-semibold transition">
-        {$t('login.login_button')}
+        {$t('actions.login')}
       </button>
     </form>
 
     <div class="text-s text-accent mt-3.5 space-y-3.5 text-center font-semibold">
-      <a href="/creation" class="block hover:underline">{$t('login.create_account_link')}</a>
-      <a href="/recovery" class="block hover:underline">{$t('login.cant_login_link')}</a>
+      <a href="/creation" class="block hover:underline">{$t('pages.login.create_account_link')}</a>
+      <a href="/recovery" class="block hover:underline">{$t('pages.login.cant_login_link')}</a>
     </div>
   </div>
 </div>

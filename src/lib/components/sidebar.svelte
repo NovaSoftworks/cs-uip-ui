@@ -54,12 +54,12 @@
     <NavLink
       href="/settings"
       icon={SettingsIcon}
-      name={$t('sidebar.settings')}
+      name={$t('layout.sidebar.settings')}
       active={page.url.pathname === '/settings'}
       closeSidebar={props.closeSidebar} />
     <a href="/logout" class="hover:bg-dark flex h-14 w-[100%] cursor-pointer items-center space-x-3 px-14">
       <LogoutIcon class="h-5 w-5 fill-current" />
-      <span>{$t('sidebar.logout')}</span>
+      <span>{$t('actions.logout')}</span>
     </a>
   </div>
 </aside>

@@ -10,7 +10,8 @@
 </script>
 
 <svelte:head>
-  <title>{isVerified ? $t('verification.title_verified') : $t('verification.title_pending')} | Nova Softworks</title>
+  <title
+    >{isVerified ? $t('pages.verification.title_verified') : $t('pages.verification.title_pending')} | Nova Softworks</title>
 </svelte:head>
 
 <div class="bg-light flex items-center justify-center px-3.5 py-7 md:px-7">
@@ -21,19 +22,19 @@
     </div>
 
     {#if isVerified}
-      <h1 class="text-medium text-3xl font-semibold">{$t('verification.heading_verified')}</h1>
-      <p class="text-m text-softened">{$t('verification.subtext_verified')}</p>
+      <h1 class="text-medium text-3xl font-semibold">{$t('pages.verification.heading_verified')}</h1>
+      <p class="text-m text-softened">{$t('pages.verification.subtext_verified')}</p>
       <a
         href="/login"
         class="bg-accent text-lighter hover:bg-accent/10 hover:text-accent inline-block rounded-sm px-8 py-3 font-semibold shadow transition">
-        {$t('verification.back_to_login')}
+        {$t('actions.login')}
       </a>
     {:else}
-      <h1 class="text-medium text-3xl font-semibold">{$t('verification.heading_pending')}</h1>
+      <h1 class="text-medium text-3xl font-semibold">{$t('pages.verification.heading_pending')}</h1>
       <p class="text-m text-medium">
-        {$t('verification.email_sent')}
+        {$t('pages.verification.email_sent')}
       </p>
-      <p class="text-m text-medium">{$t('verification.check_spam')}</p>
+      <p class="text-m text-medium">{$t('pages.verification.check_spam')}</p>
       <!-- TODO: add resend verification link feature -->
     {/if}
   </div>

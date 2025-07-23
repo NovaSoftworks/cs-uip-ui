@@ -1,0 +1,14 @@
+{
+  "fields": {
+    "email": "Email",
+    "password": "Mot de passe",
+    "first_name": "Prénom",
+    "last_name": "Nom de famille"
+  },
+  "placeholders": {
+    "email": "Email",
+    "password": "Mot de passe",
+    "first_name": "Prénom",
+    "last_name": "Nom de famille (optionnel)"
+  }
+}

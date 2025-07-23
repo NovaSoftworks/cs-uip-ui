@@ -24,6 +24,6 @@
   <LanguageSwitcher />
   <a href="/logout" class="hover:text-softened flex cursor-pointer items-center space-x-1">
     <LogoutIcon class="h-5 w-5 fill-current" />
-    <span>{$t('header.logout')}</span>
+    <span>{$t('actions.logout')}</span>
   </a>
 </div>

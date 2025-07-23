@@ -13,11 +13,11 @@
 </script>
 
 <svelte:head>
-  <title>{$t('creation.title')} | Nova Softworks</title>
+  <title>{$t('pages.creation.title')} | Nova Softworks</title>
 </svelte:head>
 
 <div class="w-full max-w-100 space-y-7">
-  <h1 class="text-medium text-center text-2xl">{$t('creation.welcome')}</h1>
+  <h1 class="text-medium text-center text-2xl">{$t('pages.creation.heading')}</h1>
 
   <div class="bg-lighter rounded-sm px-3.5 py-7 shadow-sm md:px-7">
     <!-- LOGO -->
@@ -42,19 +42,19 @@
             {messages}
             inputmode="email"
             autocomplete="email"
-            placeholder={$t('creation.email_placeholder')} />
+            placeholder={$t('identity.placeholders.email')} />
         {:else if attributes.name === 'traits.name.first'}
           <KratosInput
             {attributes}
             {messages}
             autocomplete="given-name"
-            placeholder={$t('creation.first_name_placeholder')} />
+            placeholder={$t('identity.placeholders.first_name')} />
         {:else if attributes.name === 'traits.name.last'}
           <KratosInput
             {attributes}
             {messages}
             autocomplete="family-name"
-            placeholder={$t('creation.last_name_placeholder')} />
+            placeholder={$t('identity.placeholders.last_name')} />
         {:else if attributes.name === 'password'}
           <KratosPassword {attributes} {messages} />
         {:else if attributes.type === 'submit'}
@@ -63,15 +63,15 @@
             name={attributes.name}
             value={attributes.value}
             class="bg-accent text-lighter hover:bg-accent/10 hover:text-accent w-full cursor-pointer rounded-sm py-2.5 font-semibold transition">
-            {$t('creation.submit_button')}
+            {$t('actions.signup')}
           </button>
         {/if}
       {/each}
     </form>
 
     <div class="text-s mt-3.5 space-y-3.5 text-center">
-      {$t('creation.already_question')}
-      <a href="/login" class="text-accent font-semibold hover:underline">{$t('creation.login_link')}</a>
+      {$t('pages.creation.already_have_account_prompt')}
+      <a href="/login" class="text-accent font-semibold hover:underline">{$t('actions.login')}</a>
     </div>
   </div>
 </div>

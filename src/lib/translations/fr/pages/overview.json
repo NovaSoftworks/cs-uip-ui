@@ -1,5 +1,7 @@
 {
-  "welcome_back": "Bon retour, {{name}} !",
+  "title": "Vue d'ensemble du compte",
+  "heading": "Bon retour, {{name}} !",
+  "heading_2": "Gérez les détails de votre compte et vos paramètres globaux.",
   "summary.title": "Résumé du compte",
   "summary.status": "Statut",
   "summary.status.verified": "Vérifié",

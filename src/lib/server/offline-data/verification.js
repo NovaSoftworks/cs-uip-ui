@@ -1,4 +1,4 @@
 export const data = {
-  isVerified: true,
+  isVerified: false,
   flowUi: {}
 };
