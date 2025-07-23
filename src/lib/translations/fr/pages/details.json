@@ -1,4 +1,8 @@
 {
   "title": "Détails du compte",
-  "heading": "Détails"
+  "heading": "Détails",
+  "groups": {
+    "profile": "Informations personnelles",
+    "password": "Sécurité"
+  }
 }

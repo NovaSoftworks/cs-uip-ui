@@ -22,7 +22,7 @@
     type={passwordIsVisible ? 'text' : 'password'}
     name={attributes.name}
     autocomplete="current-password"
-    placeholder={$t('identity.placeholders.password')}
+    placeholder={$t('identity.password')}
     value={attributes.value}
     required={attributes.required}
     disabled={attributes.disabled}

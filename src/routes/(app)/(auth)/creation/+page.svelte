@@ -42,19 +42,19 @@
             {messages}
             inputmode="email"
             autocomplete="email"
-            placeholder={$t('identity.placeholders.email')} />
+            placeholder={$t('identity.traits.email')} />
         {:else if attributes.name === 'traits.name.first'}
           <KratosInput
             {attributes}
             {messages}
             autocomplete="given-name"
-            placeholder={$t('identity.placeholders.first_name')} />
+            placeholder={$t('identity.traits.name.first')} />
         {:else if attributes.name === 'traits.name.last'}
           <KratosInput
             {attributes}
             {messages}
             autocomplete="family-name"
-            placeholder={$t('identity.placeholders.last_name')} />
+            placeholder={`${$t('identity.traits.name.last')} (${$t('identity.optional').toLowerCase()})`} />
         {:else if attributes.name === 'password'}
           <KratosPassword {attributes} {messages} />
         {:else if attributes.type === 'submit'}

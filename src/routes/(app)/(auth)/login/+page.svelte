@@ -44,7 +44,7 @@
             {messages}
             inputmode="email"
             autocomplete="email"
-            placeholder={$t('identity.placeholders.email')} />
+            placeholder={$t('identity.traits.email')} />
         {/if}
 
         {#if attributes.name === 'password'}

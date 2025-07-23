@@ -1,8 +1,13 @@
 <script lang="ts">
   import { t } from '$lib/translations';
+  import KratosInputNode from '$lib/components/auth/kratos-input-node.svelte';
+  import KratosPassword from '$lib/components/auth/kratos-password.svelte';
 
   let { data } = $props();
   const flow = data.flow;
+
+  const groups = Object.groupBy(flow.ui.nodes, (n: any) => n.group);
+  const csrf = groups.default?.find(n => n.attributes.name === 'csrf_token');
 
   console.log(flow);
 </script>
@@ -13,21 +18,43 @@
 
 <h1 class="page-title mb-7">{$t('pages.details.heading')}</h1>
 
-<div class="bg-lighter rounded-sm p-7 shadow-sm">
-  <div class="mb-7 flex flex-col gap-7">
-    <input
-      type="text"
-      placeholder={$t('identity.placeholders.first_name')}
-      class="text-medium placeholder-softened focus:ring-accent bg-light focus:outline-nonebg-light w-full rounded-sm px-3.5 py-2.5 focus:ring-2" />
-    <input
-      type="text"
-      placeholder={$t('identity.placeholders.last_name')}
-      class="text-medium placeholder-softened focus:ring-accent bg-light focus:outline-nonebg-light w-full rounded-sm px-3.5 py-2.5 focus:ring-2" />
+{#each Object.entries(groups) as [groupName, nodes]}
+  {#if groupName !== 'default' && nodes}
+    <div class="bg-lighter mb-14 rounded-sm p-7 shadow-sm">
+      <form method={flow.ui.method} action={flow.ui.action} class="flex flex-col gap-7">
+        <h2 class="text-medium text-2xl font-semibold">
+          {$t(`pages.details.groups.${groupName}`) || groupName}
+        </h2>
 
-    <button
-      type="submit"
-      class="bg-accent text-lighter hover:bg-accent/10 hover:text-accent w-full cursor-pointer rounded-sm py-2.5 font-semibold transition">
-      {$t('actions.save')}
-    </button>
-  </div>
-</div>
+        {#if csrf}
+          <input type="hidden" name={csrf.attributes.name} value={csrf.attributes.value} />
+        {/if}
+
+        {#each nodes as node}
+          {#if node.attributes.name === 'method'}
+            <button
+              type="submit"
+              name="method"
+              value={node.attributes.value}
+              class="bg-accent text-lighter hover:bg-accent/10 hover:text-accent w-full cursor-pointer rounded-sm py-2.5 font-semibold transition">
+              {$t('actions.save')}
+            </button>
+          {:else}
+            <div class="grid items-center lg:grid-cols-[1fr_4fr]">
+              <label for={node.attributes.name} class="text-foreground mb-1.75 block text-sm font-medium lg:mb-0">
+                {$t(`identity.${node.attributes.name}`)}
+                {#if node.attributes.required}
+                  <span class="text-ko ml-1">*</span>
+                {/if}
+              </label>
+              <KratosInputNode
+                id={node.attributes.name}
+                attributes={node.attributes}
+                placeholder={$t(`identity.${node.attributes.name}`)} />
+            </div>
+          {/if}
+        {/each}
+      </form>
+    </div>
+  {/if}
+{/each}
