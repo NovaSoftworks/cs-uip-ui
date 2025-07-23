@@ -1,6 +1,6 @@
 <script lang="ts">
   import { t } from '$lib/translations';
-  import KratosInputNode from '$lib/components/auth/kratos-input-node.svelte';
+  import KratosInputNode from '$lib/components/account/kratos-input-node.svelte';
   import KratosPassword from '$lib/components/auth/kratos-password.svelte';
 
   let { data } = $props();
@@ -19,7 +19,7 @@
 <h1 class="page-title mb-7">{$t('pages.details.heading')}</h1>
 
 {#each Object.entries(groups) as [groupName, nodes]}
-  {#if groupName !== 'default' && nodes}
+  {#if groupName !== 'default' && groupName !== 'password' && nodes}
     <div class="bg-lighter mb-14 rounded-sm p-7 shadow-sm">
       <form method={flow.ui.method} action={flow.ui.action} class="flex flex-col gap-7">
         <h2 class="text-medium text-2xl font-semibold">

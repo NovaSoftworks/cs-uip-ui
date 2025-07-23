@@ -14,8 +14,8 @@ export interface NavLink {
 
 export const navLinks: NavLink[] = [
   { key: 'layout.sidebar.overview', href: '/', icon: OverviewIcon },
-  { key: 'layout.sidebar.details', href: '/details', icon: DetailsIcon }
-  //{ key: 'sidebar.security', href: '/security', icon: SecurityIcon },
+  { key: 'layout.sidebar.details', href: '/details', icon: DetailsIcon },
+  { key: 'layout.sidebar.security', href: '/security', icon: SecurityIcon }
   //{ key: 'sidebar.apps', href: '/apps', icon: AppsIcon },
   //{ key: 'sidebar.novahub', href: '/novahub', icon: NovaHubIcon }
 ];
