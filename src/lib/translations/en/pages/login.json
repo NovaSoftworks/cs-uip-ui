@@ -1,6 +1,8 @@
 {
   "title": "Login",
   "heading": "Welcome back to Nova",
+  "title_reauth": "Re-authentication required",
+  "heading_reauth": "Please confirm your identity",
   "create_account_link": "Create your Nova account",
   "cant_login_link": "Can't log in?"
 }

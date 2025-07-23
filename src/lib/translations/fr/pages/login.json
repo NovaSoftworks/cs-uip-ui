@@ -1,6 +1,8 @@
 {
   "title": "Connexion",
   "heading": "Bon retour sur Nova",
+  "title_reauth": "Ré-authentification requise",
+  "heading_reauth": "Veuillez confirmer votre identité",
   "create_account_link": "Créez votre compte Nova",
   "cant_login_link": "Besoin d'aide pour vous connecter ?"
 }

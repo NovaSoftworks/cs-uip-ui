@@ -10,7 +10,7 @@ const logger = createLogger('/login');
 export const load = async ({ url, fetch }) => {
   if (IS_OFFLINE) {
     logger.debug('Returning sample login flow');
-    return { flow: offlineFlow };
+    return { flow: offlineFlow, isReAuth: false };
   }
 
   const flowId = url.searchParams.get('flow');
@@ -56,5 +56,8 @@ export const load = async ({ url, fetch }) => {
   });
 
   logger.debug({ parameters: flowId }, 'Returning login flow metadata');
-  return { flow };
+
+  const isReAuth = flow.ui.messages?.some((m: any) => m.id === 1010003) || false;
+
+  return { flow, isReAuth };
 };

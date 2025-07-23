@@ -8,16 +8,18 @@
   import { t } from '$lib/translations';
 
   let { data } = $props();
-  const flow = data.flow;
+  const { flow, isReAuth } = data;
   const uiMessages = flow.ui.messages || [];
 </script>
 
 <svelte:head>
-  <title>{$t('pages.login.title')} | Nova Softworks</title>
+  <title>{isReAuth ? $t('pages.login.title_reauth') : $t('pages.login.title')} | Nova Softworks</title>
 </svelte:head>
 
 <div class="w-full max-w-100 space-y-7">
-  <h1 class="text-medium text-center text-2xl">{$t('pages.login.heading')}</h1>
+  <h1 class="text-medium text-center text-2xl">
+    {isReAuth ? $t('pages.login.heading_reauth') : $t('pages.login.heading')}
+  </h1>
 
   <div class="bg-lighter rounded-sm px-3.5 py-7 shadow-sm md:px-7">
     <!-- LOGO -->
@@ -61,9 +63,11 @@
       </button>
     </form>
 
-    <div class="text-s text-accent mt-3.5 space-y-3.5 text-center font-semibold">
-      <a href="/creation" class="block hover:underline">{$t('pages.login.create_account_link')}</a>
-      <a href="/recovery" class="block hover:underline">{$t('pages.login.cant_login_link')}</a>
-    </div>
+    {#if !isReAuth}
+      <div class="text-s text-accent mt-3.5 space-y-3.5 text-center font-semibold">
+        <a href="/creation" class="block hover:underline">{$t('pages.login.create_account_link')}</a>
+        <a href="/recovery" class="block hover:underline">{$t('pages.login.cant_login_link')}</a>
+      </div>
+    {/if}
   </div>
 </div>
