@@ -1,5 +1,10 @@
 <script lang="ts">
   import { t } from '$lib/translations';
+
+  let { data } = $props();
+  const flow = data.flow;
+
+  console.log(flow);
 </script>
 
 <svelte:head>
