@@ -29,8 +29,10 @@
 
     <form class="mt-14 space-y-7" method={flow.ui.method} action={flow.ui.action}>
       {#if uiMessages && uiMessages.length}
-        {#each uiMessages as { id }}
-          <div class="bg-ko/10 text-ko rounded-sm px-3.5 py-2.5">{$t(`kratos.${id}`)}</div>
+        {#each uiMessages as { id, type }}
+          <div class="{type === 'error' ? 'bg-ko/10 text-ko' : 'bg-accent/10 text-accent'} rounded-sm px-3.5 py-2.5">
+            {$t(`kratos.${id}`)}
+          </div>
         {/each}
       {/if}
       <input type="hidden" name="flow" value={flow.id} />
