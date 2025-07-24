@@ -7,5 +7,15 @@
     }
   },
   "password": "Mot de passe",
-  "optional": "Optionnel"
+  "optional": "Optionnel",
+  "placeholders": {
+    "traits": {
+      "email": "camilledupont@email.com",
+      "name": {
+        "first": "Camille",
+        "last": "Dupont"
+      }
+    },
+    "password": "**********"
+  }
 }

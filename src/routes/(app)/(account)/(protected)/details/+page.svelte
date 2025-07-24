@@ -1,10 +1,10 @@
 <script lang="ts">
+  import { page } from '$app/state';
   import { t } from '$lib/translations';
   import KratosInputNode from '$lib/components/account/kratos-input-node.svelte';
-  import KratosPassword from '$lib/components/auth/kratos-password.svelte';
 
   let { data } = $props();
-  const flow = data.flow;
+  const { flow } = data;
 
   const groups = Object.groupBy(flow.ui.nodes, (n: any) => n.group);
   const csrf = groups.default?.find(n => n.attributes.name === 'csrf_token');
@@ -17,9 +17,8 @@
 </svelte:head>
 
 <h1 class="page-title mb-7">{$t('pages.details.heading')}</h1>
-
 {#each Object.entries(groups) as [groupName, nodes]}
-  {#if groupName !== 'default' && groupName !== 'password' && nodes}
+  {#if groupName !== 'default' && nodes}
     <div class="bg-lighter mb-14 rounded-sm p-7 shadow-sm">
       <form method={flow.ui.method} action={flow.ui.action} class="flex flex-col gap-7">
         <h2 class="text-medium text-2xl font-semibold">
@@ -50,7 +49,7 @@
               <KratosInputNode
                 id={node.attributes.name}
                 attributes={node.attributes}
-                placeholder={$t(`identity.${node.attributes.name}`)} />
+                placeholder={$t(`identity.placeholders.${node.attributes.name}`)} />
             </div>
           {/if}
         {/each}

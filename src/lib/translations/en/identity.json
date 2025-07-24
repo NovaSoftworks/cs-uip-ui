@@ -7,5 +7,15 @@
     }
   },
   "password": "Password",
-  "optional": "Optional"
+  "optional": "Optional",
+  "placeholders": {
+    "traits": {
+      "email": "jamiedoe@email.com",
+      "name": {
+        "first": "Jamie",
+        "last": "Doe"
+      }
+    },
+    "password": "**********"
+  }
 }

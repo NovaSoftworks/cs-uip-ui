@@ -2,7 +2,7 @@
   "title": "Account details",
   "heading": "Details",
   "groups": {
-    "profile": "Personal Information",
+    "profile": "Personal information",
     "password": "Security"
   }
 }

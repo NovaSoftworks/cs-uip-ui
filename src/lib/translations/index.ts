@@ -4,7 +4,7 @@ const languages = ['en', 'fr'];
 
 const defaultNamespaces = ['actions', 'identity', 'kratos'];
 const layoutNamespaces = ['footer', 'header', 'sidebar'];
-const pageNamespaces = ['creation', 'details', 'login', 'overview', 'security', 'verification'];
+const pageNamespaces = ['creation', 'details', 'login', 'overview', 'verification'];
 
 const defaultLoaders = languages.flatMap(locale =>
   defaultNamespaces.map(key => ({
