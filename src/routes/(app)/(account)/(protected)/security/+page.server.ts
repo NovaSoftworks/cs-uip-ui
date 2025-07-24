@@ -13,15 +13,31 @@ export const load = async ({ url, fetch }) => {
     };
   }
   const flowId = url.searchParams.get('flow');
+  const returnTo = url.searchParams.get('return_to') || '/security'; // Capture original return_to
 
   if (!flowId) {
-    const res = await fetch(`${BASE_URL}/self-service/settings/browser`, {
+    const res = await fetch(`${BASE_URL}/self-service/settings/browser?return_to=${encodeURIComponent(returnTo)}`, {
       redirect: 'manual',
       credentials: 'include'
     });
 
-    const redirectTo = res.headers.get('location') || '/security';
-    redirect(303, redirectTo);
+    const redirectTo = res.headers.get('location');
+
+    if (redirectTo) {
+      const parsedRedirectTo = new URL(redirectTo);
+      if (parsedRedirectTo.pathname.includes('/security')) {
+        redirect(303, redirectTo);
+      } else {
+        const flowIdFromRedirect = parsedRedirectTo.searchParams.get('flow');
+        if (flowIdFromRedirect) {
+          redirect(303, `/security?flow=${flowIdFromRedirect}`);
+        } else {
+          redirect(303, `/security`);
+        }
+      }
+    } else {
+      redirect(303, `/security`);
+    }
   }
 
   const res = await fetch(`${BASE_URL}/self-service/settings/flows?id=${flowId}`, {
