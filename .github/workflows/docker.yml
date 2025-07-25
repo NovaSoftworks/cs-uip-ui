@@ -46,6 +46,8 @@ jobs:
             echo "Tag v${{ steps.determine_version.outputs.version }} already exists."
             exit 1
           fi
+      - name: Add version to job summary
+        run: echo "## Docker Build v${{ steps.determine_version.outputs.version }}" >> $GITHUB_STEP_SUMMARY
       - name: Set Docker image tag
         id: set_image_tag
         run: echo "image_tag=ghcr.io/${GITHUB_REPOSITORY@L}:${{ steps.determine_version.outputs.version }}" >> $GITHUB_OUTPUT
