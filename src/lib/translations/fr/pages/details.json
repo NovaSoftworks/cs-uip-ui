@@ -4,5 +4,9 @@
   "groups": {
     "profile": "Informations personnelles",
     "password": "Sécurité"
+  },
+  "edit": {
+    "title": "Modifier les détails du compte",
+    "heading": "Modifier les détails"
   }
 }

@@ -21,10 +21,10 @@
     {isReAuth ? $t('pages.login.heading_reauth') : $t('pages.login.heading')}
   </h1>
 
-  <div class="bg-lighter rounded-sm px-3.5 py-7 shadow-sm md:px-7">
+  <div class="bg-lighter rounded-sm px-3.5 py-7 shadow-sm lg:px-7">
     <!-- LOGO -->
     <div class="flex justify-center">
-      <NSLogo class="fill-medium  md:h-6" />
+      <NSLogo class="fill-medium  lg:h-6" />
     </div>
 
     <form class="mt-14 space-y-7" method={flow.ui.method} action={flow.ui.action}>

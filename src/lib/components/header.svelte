@@ -10,7 +10,7 @@
 </script>
 
 <!-- MOBILE HEADER -->
-<div class="flex items-start justify-between md:hidden">
+<div class="flex items-start justify-between lg:hidden">
   <a class="text-lg font-bold text-gray-800" href="/">
     <NSLogo class="fill-darker h-4" />
   </a>
@@ -20,7 +20,7 @@
 </div>
 
 <!-- DESKTOP HEADER -->
-<div class="hidden items-center justify-end space-x-6 text-sm md:flex">
+<div class="hidden items-center justify-end space-x-6 text-sm lg:flex">
   <LanguageSwitcher />
   <a href="/logout" class="hover:text-softened flex cursor-pointer items-center space-x-1">
     <LogoutIcon class="h-5 w-5 fill-current" />

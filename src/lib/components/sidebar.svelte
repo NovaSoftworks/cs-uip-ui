@@ -21,17 +21,17 @@
     aria-label="close_sidebar"
     onclick={props.closeSidebar}
     tabindex="0"
-    class="fixed inset-0 z-9 bg-black opacity-30 md:hidden">
+    class="fixed inset-0 z-9 bg-black opacity-30 lg:hidden">
   </button>
 {/if}
 
 <!-- SIDEBAR -->
 <aside
   class="
-    bg-darker text-lighter md: fixed inset-y-0 left-0 z-10
+    bg-darker text-lighter fixed inset-y-0 left-0 z-10
     w-84 max-w-[80%] transform pt-7
-    transition-transform md:static
-    md:row-span-3 md:max-w-none md:translate-x-0 md:border-0
+    transition-transform lg:static
+    lg:row-span-3 lg:max-w-none lg:translate-x-0 lg:border-0
 "
   class:-translate-x-full={!props.sidebarOpen}
   class:translate-x-0={props.sidebarOpen}>
@@ -42,9 +42,9 @@
     </a>
   </div>
 
-  <nav class="mt-7 flex-1 md:mt-14" aria-label="main_navigation">
+  <nav class="mt-7 flex-1 lg:mt-14" aria-label="main_navigation">
     {#each navLinks as { key, href, icon }}
-      {@const active = page.url.pathname === href}
+      {@const active = page.url.pathname.startsWith(href)}
       <NavLink {href} {icon} name={$t(key)} {active} closeSidebar={props.closeSidebar} />
     {/each}
   </nav>

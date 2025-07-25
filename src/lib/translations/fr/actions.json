@@ -1,6 +1,7 @@
 {
-  "save": "Enregistrer",
-  "edit": "Modifier",
+  "save": "Sauvegarder",
+  "cancel": "Annuler",
+  "update": "Mettre à jour",
   "login": "Se connecter",
   "logout": "Se déconnecter",
   "signup": "S'inscrire"

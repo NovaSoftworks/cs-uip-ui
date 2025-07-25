@@ -7,7 +7,7 @@
 </script>
 
 <div class="bg-light text-darker flex min-h-screen flex-col">
-  <main class="flex flex-grow items-center justify-center px-3.5 py-7 md:px-7">
+  <main class="flex flex-grow items-center justify-center px-3.5 py-7 lg:px-7">
     {@render children()}
   </main>
 

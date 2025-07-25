@@ -1,6 +1,7 @@
 {
   "save": "Save",
-  "edit": "Edit",
+  "cancel": "Cancel",
+  "update": "Update",
   "login": "Log in",
   "logout": "Log out",
   "signup": "Sign up"

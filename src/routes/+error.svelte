@@ -4,7 +4,7 @@
   import { page } from '$app/state';
 </script>
 
-<div class="bg-light flex min-h-screen items-center justify-center px-3.5 py-7 md:px-7">
+<div class="bg-light flex min-h-screen items-center justify-center px-3.5 py-7 lg:px-7">
   <div class="text-center">
     <h1 class="text-medium text-9xl font-bold">{page.status}</h1>
 

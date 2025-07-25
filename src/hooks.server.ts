@@ -2,6 +2,7 @@ import { httpResponseToString } from '$lib/formatting';
 import { BASE_URL, IS_OFFLINE } from '$lib/server/config';
 import { createLogger } from '$lib/server/logging';
 import { type Handle, redirect, type RequestEvent } from '@sveltejs/kit';
+import { response_200 as offlineData } from '$lib/server/offline-data/kratos/whoami';
 
 const SESSION_COOKE_NAME = 'ory_kratos_session';
 
@@ -11,13 +12,17 @@ export const handle: Handle = async ({ event, resolve }) => {
   const routeId = event.route?.id;
   const isPublic = !routeId || (!routeId.includes('/(protected)') && event.url.pathname !== '/logout');
 
-  if (IS_OFFLINE || isPublic) {
-    const response = await resolve(event);
-    return response;
+  if (!IS_OFFLINE && !isPublic) {
+    await authenticateSession(event, logger);
+    return await resolve(event);
   }
 
-  await authenticateSession(event, logger);
-  return await resolve(event);
+  if (IS_OFFLINE) {
+    event.locals.session = offlineData;
+  }
+
+  const response = await resolve(event);
+  return response;
 };
 
 /**

@@ -13,7 +13,7 @@ export interface NavLink {
 }
 
 export const navLinks: NavLink[] = [
-  { key: 'layout.sidebar.overview', href: '/', icon: OverviewIcon },
+  { key: 'layout.sidebar.overview', href: '/overview', icon: OverviewIcon },
   { key: 'layout.sidebar.details', href: '/details', icon: DetailsIcon }
   //{ key: 'sidebar.apps', href: '/apps', icon: AppsIcon },
   //{ key: 'sidebar.novahub', href: '/novahub', icon: NovaHubIcon }

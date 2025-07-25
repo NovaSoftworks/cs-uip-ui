@@ -12,7 +12,7 @@
     >{isVerified ? $t('pages.verification.title_verified') : $t('pages.verification.title_pending')} | Nova Softworks</title>
 </svelte:head>
 
-<div class="bg-light flex items-center justify-center px-3.5 py-7 md:px-7">
+<div class="bg-light flex items-center justify-center px-3.5 py-7 lg:px-7">
   <div class="max-w-xl space-y-7 text-center">
     <!-- Logo -->
     <div class="flex justify-center">

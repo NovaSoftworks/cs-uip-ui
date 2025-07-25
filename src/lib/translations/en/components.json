@@ -1,0 +1,8 @@
+{
+  "account": {
+    "form_input": {
+      "show_password": "Show password",
+      "hide_password": "Hide password"
+    }
+  }
+}

@@ -17,10 +17,10 @@
 <div class="w-full max-w-100 space-y-7">
   <h1 class="text-medium text-center text-2xl">{$t('pages.creation.heading')}</h1>
 
-  <div class="bg-lighter rounded-sm px-3.5 py-7 shadow-sm md:px-7">
+  <div class="bg-lighter rounded-sm px-3.5 py-7 shadow-sm lg:px-7">
     <!-- LOGO -->
     <div class="flex justify-center">
-      <NSLogo class="fill-medium  md:h-6" />
+      <NSLogo class="fill-medium  lg:h-6" />
     </div>
 
     <form class="mt-14 space-y-7" method={flow.ui.method} action={flow.ui.action}>

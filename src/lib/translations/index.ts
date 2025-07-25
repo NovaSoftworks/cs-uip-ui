@@ -2,7 +2,7 @@ import i18n from 'sveltekit-i18n';
 
 const languages = ['en', 'fr'];
 
-const defaultNamespaces = ['actions', 'identity', 'kratos'];
+const defaultNamespaces = ['actions', 'components', 'identity', 'kratos'];
 const layoutNamespaces = ['footer', 'header', 'sidebar'];
 const pageNamespaces = ['creation', 'details', 'login', 'overview', 'verification'];
 
