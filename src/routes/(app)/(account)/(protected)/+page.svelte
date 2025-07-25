@@ -35,24 +35,4 @@
       </div>
     </div>
   </div>
-
-  <div class="bg-lighter rounded-sm p-7 shadow-sm">
-    <div class="mb-7 flex items-center gap-3">
-      <h2 class="text-medium text-2xl font-semibold">{$t('pages.overview.info.title')}</h2>
-    </div>
-
-    <div class="text-darker space-y-3.5 text-sm">
-      <div class="flex justify-between">
-        <span class="text-medium">{$t('pages.overview.info.name')}</span>
-        <span class="text-darker">{user.name.first} {user.name.last}</span>
-      </div>
-      <div class="flex justify-between">
-        <span class="text-medium">{$t('pages.overview.info.email')}</span>
-        <span>{user.email}</span>
-      </div>
-      <div class="mt-4 text-right">
-        <a href="/details" class="text-accent text-sm font-semibold hover:underline">{$t('actions.edit')}</a>
-      </div>
-    </div>
-  </div>
 </div>

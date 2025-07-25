@@ -6,9 +6,5 @@
   "summary.status": "Status",
   "summary.status.verified": "Verified",
   "summary.status.unverified": "Unverified",
-  "summary.last_login": "Last login",
-  "info.title": "Your information",
-  "info.name": "Name",
-  "info.email": "Email",
-  "info.edit": "Edit"
+  "summary.last_login": "Last login"
 }

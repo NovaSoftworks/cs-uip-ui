@@ -7,8 +7,5 @@
   "summary.status.verified": "Vérifié",
   "summary.status.unverified": "Non vérifié",
   "summary.last_login": "Dernière connexion",
-  "info.title": "Vos informations",
-  "info.name": "Nom",
-  "info.email": "Email",
-  "info.edit": "Modifier"
+  "info.title": "Vos informations"
 }
