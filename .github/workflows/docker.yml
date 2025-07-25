@@ -38,15 +38,16 @@ jobs:
           echo "version=$version" >> $GITHUB_OUTPUT
       - name: Validate version format
         run: |
-          echo "${{ steps.determine_version.outputs.version }}" | grep -Eq '^([0-9]+\.){2}[0-9]+$' \
-            || (echo "Invalid version. Must be in SemVer format (Major.minor.patch).") 
-          echo "## Docker Build v${{ steps.determine_version.outputs.version }} failed: Invalid version. Must be in SemVer format (Major.minor.patch)." >> $GITHUB_STEP_SUMMARY  
-          exit 1
+          if ! echo "${{ steps.determine_version.outputs.version }}" | grep -Eq '^([0-9]+\.){2}[0-9]+$'; then
+            echo "Invalid version. Must be in SemVer format (Major.minor.patch)"
+            echo "## Docker Build v${{ steps.determine_version.outputs.version }} failed: invalid version. Must be in SemVer format (Major.minor.patch)." >> $GITHUB_STEP_SUMMARY
+            exit 1
+          fi
       - name: Check if tag already exists
         run: |
           if git rev-parse "v${{ steps.determine_version.outputs.version }}" >/dev/null 2>&1; then
             echo "Tag v${{ steps.determine_version.outputs.version }} already exists."
-            echo "## Docker Build v${{ steps.determine_version.outputs.version }} failed: Tag already exists." >> $GITHUB_STEP_SUMMARY
+            echo "## Docker Build v${{ steps.determine_version.outputs.version }} failed: tag already exists." >> $GITHUB_STEP_SUMMARY
             exit 1
           fi
       - name: Add version to job summary
