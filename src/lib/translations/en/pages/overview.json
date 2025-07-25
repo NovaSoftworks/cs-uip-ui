@@ -2,7 +2,7 @@
   "title": "Account overview",
   "heading": "Welcome back, {{name}}!",
   "heading_2": "Manage your account details and global settings.",
-  "summary.title": "Account Summary",
+  "summary.title": "Account summary",
   "summary.status": "Status",
   "summary.status.verified": "Verified",
   "summary.status.unverified": "Unverified",
