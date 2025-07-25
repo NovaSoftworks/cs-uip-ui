@@ -5,8 +5,6 @@
 
   let { data } = $props();
   const { isVerified, flowUi } = data;
-
-  console.log('Verification page data:', data);
 </script>
 
 <svelte:head>

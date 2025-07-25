@@ -8,8 +8,6 @@
 
   const groups = Object.groupBy(flow.ui.nodes, (n: any) => n.group);
   const csrf = groups.default?.find(n => n.attributes.name === 'csrf_token');
-
-  console.log(flow);
 </script>
 
 <svelte:head>

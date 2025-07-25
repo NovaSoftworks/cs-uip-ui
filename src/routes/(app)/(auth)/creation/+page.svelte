@@ -8,8 +8,6 @@
   let { data } = $props();
   const flow = data.flow;
   const uiMessages = flow.ui.messages || [];
-
-  console.log('Flow data:', flow);
 </script>
 
 <svelte:head>
