@@ -14,18 +14,13 @@ export const load = async ({ url, fetch }) => {
     return { flow: offlineFlow }; // Sample offline flow
   }
 
+  logger.debug('Search parameters: %s', url.searchParams.toString());
   const flowId = url.searchParams.get('flow');
 
   if (!flowId) {
-    logger.debug('Starting registration flow');
-    const res = await fetch(`${BASE_URL}/self-service/registration/browser`, {
-      redirect: 'manual',
-      credentials: 'include'
-    });
-
-    const redirectionTarget = res.headers.get('Location') || '/creation';
-    logger.debug('Redirecting to %s', redirectionTarget);
-    redirect(303, redirectionTarget);
+    const redirectTo = `${BASE_URL}/self-service/registration/browser`;
+    logger.debug('Starting registration flow - redirecting to %s', redirectTo);
+    redirect(303, redirectTo);
   }
 
   logger.debug({ parameters: flowId }, 'Fetching registration flow metadata');

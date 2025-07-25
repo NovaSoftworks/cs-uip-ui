@@ -15,17 +15,12 @@ export const load = async ({ url, fetch }) => {
     };
   }
 
+  logger.debug('Search parameters: %s', url.searchParams.toString());
   const flowId = url.searchParams.get('flow');
 
   if (!flowId) {
-    logger.debug({ details: url.toString }, 'Starting settings flow');
-    const res = await fetch(`${BASE_URL}/self-service/settings/browser`, {
-      redirect: 'manual',
-      credentials: 'include'
-    });
-
-    const redirectTo = res.headers.get('location') || '/details';
-    logger.debug('Redirecting to %s', redirectTo);
+    const redirectTo = `${BASE_URL}/self-service/settings/browser`;
+    logger.debug('Starting settings flow - redirecting to %s', redirectTo);
     redirect(303, redirectTo);
   }
 

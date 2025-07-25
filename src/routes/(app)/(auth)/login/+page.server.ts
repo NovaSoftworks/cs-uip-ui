@@ -13,19 +13,14 @@ export const load = async ({ url, fetch }) => {
     return { flow: offlineFlow, isReAuth: false };
   }
 
+  logger.debug('Search parameters: %s', url.searchParams.toString());
   const flowId = url.searchParams.get('flow');
 
   // If no login flow currently exists, we start a new one
   if (!flowId) {
-    logger.debug('Starting login flow');
-    const res = await fetch(`${BASE_URL}/self-service/login/browser`, {
-      redirect: 'manual',
-      credentials: 'include'
-    });
-
-    const redirectionTarget = res.headers.get('location') || '/login';
-    logger.debug('Redirecting to %s', redirectionTarget);
-    redirect(303, redirectionTarget);
+    const redirectTo = `${BASE_URL}/self-service/login/browser`;
+    logger.debug('Starting login flow - redirecting to %s', redirectTo);
+    redirect(303, redirectTo);
   }
 
   logger.debug({ parameters: flowId }, 'Fetching login flow metadata');

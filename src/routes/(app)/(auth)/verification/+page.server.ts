@@ -13,16 +13,10 @@ export const load = async ({ url, fetch }) => {
     return offlineData;
   }
 
+  logger.debug('Search parameters: %s', url.searchParams.toString());
   const flowId = url.searchParams.get('flow');
 
   if (!flowId) {
-    /*const res = await fetch(`${BASE_URL}/self-service/verification/browser`, {
-      redirect: 'manual',
-      credentials: 'include'
-    });
-
-    const redirectionTarget = res.headers.get('location') || '/verification';
-    redirect(303, redirectionTarget);*/
     logger.warn('No verification flow ID found - redirecting to /');
     redirect(303, '/');
   }
