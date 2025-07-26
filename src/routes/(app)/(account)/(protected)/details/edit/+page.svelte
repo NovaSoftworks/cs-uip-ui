@@ -43,8 +43,6 @@
                 {$t('actions.save')}
               </button>
             </div>
-          {:else if node.attributes.name === 'traits.email'}
-            <FormValue label={$t(`identity.${node.attributes.name}`)} value={node.attributes.value} />
           {:else}
             <FormInput
               type={node.attributes.type}
@@ -54,7 +52,8 @@
               autocomplete={node.attributes.autocomplete}
               disabled={node.attributes.disabled}
               placeholder={$t(`identity.placeholders.${node.attributes.name}`)}
-              label={$t(`identity.${node.attributes.name}`)} />{/if}
+              label={$t(`identity.${node.attributes.name}`)} />
+          {/if}
         {/each}
       </form>
     </div>
