@@ -6,6 +6,9 @@
       "last": "Nom de famille"
     }
   },
+  "computed": {
+    "name": "Nom"
+  },
   "password": "Mot de passe",
   "optional": "Optionnel",
   "placeholders": {

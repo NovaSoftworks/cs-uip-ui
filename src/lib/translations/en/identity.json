@@ -6,6 +6,9 @@
       "last": "Last name"
     }
   },
+  "computed": {
+    "name": "Name"
+  },
   "password": "Password",
   "optional": "Optional",
   "placeholders": {

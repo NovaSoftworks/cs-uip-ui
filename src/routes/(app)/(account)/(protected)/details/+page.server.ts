@@ -14,12 +14,8 @@ export const load = async ({ locals, url, fetch }) => {
           value: anonymizeEmail(session.identity.traits.email)
         },
         {
-          name: 'traits.name.first',
-          value: session.identity.traits.name.first
-        },
-        {
-          name: 'traits.name.last',
-          value: anonymize(session.identity.traits.name.last)
+          name: 'computed.name',
+          value: `${session.identity.traits.name.first} ${anonymize(session.identity.traits.name.last)}`
         }
       ]
     }
