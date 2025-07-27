@@ -1,10 +1,28 @@
 {
   "title": "Account overview",
   "heading": "Welcome back, {{name}}!",
-  "heading_2": "Manage your account details and global settings.",
-  "summary.title": "Account summary",
-  "summary.status": "Status",
-  "summary.status.verified": "Verified",
-  "summary.status.unverified": "Unverified",
-  "summary.last_login": "Last login"
+  "heading_2": "Manage your account settings and review your activity.",
+  "email": {
+    "title": "Email",
+    "cta": "Manage details",
+    "status": "Verification status",
+    "verified": "Verified",
+    "unverified": "Unverified"
+  },
+  "password": {
+    "title": "Password",
+    "cta": "Update password",
+    "last_changed": "Last updated"
+  },
+  "settings": {
+    "title": "Account settings",
+    "cta": "Manage settings",
+    "language": "Language"
+  },
+  "activity": {
+    "title": "Activity",
+    "cta": "Manage active sessions",
+    "last_login": "Last login",
+    "account_creation": "Member since"
+  }
 }

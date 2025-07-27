@@ -1,11 +1,28 @@
 {
-  "title": "Vue d'ensemble du compte",
+  "title": "Aperçu du compte",
   "heading": "Bon retour, {{name}} !",
-  "heading_2": "Gérez les détails de votre compte et vos paramètres globaux.",
-  "summary.title": "Résumé du compte",
-  "summary.status": "Statut",
-  "summary.status.verified": "Vérifié",
-  "summary.status.unverified": "Non vérifié",
-  "summary.last_login": "Dernière connexion",
-  "info.title": "Vos informations"
+  "heading_2": "Gérez les paramètres de votre compte et consultez votre activité.",
+  "email": {
+    "title": "Email",
+    "cta": "Gérer les détails",
+    "status": "Statut de vérification",
+    "verified": "Vérifié",
+    "unverified": "Non vérifié"
+  },
+  "password": {
+    "title": "Mot de passe",
+    "cta": "Mettre à jour le mot de passe",
+    "last_changed": "Dernière mise à jour"
+  },
+  "settings": {
+    "title": "Paramètres du compte",
+    "cta": "Gérer les paramètres",
+    "language": "Langue"
+  },
+  "activity": {
+    "title": "Activité",
+    "cta": "Gérer les sessions actives",
+    "last_login": "Dernière connexion",
+    "account_creation": "Membre depuis"
+  }
 }

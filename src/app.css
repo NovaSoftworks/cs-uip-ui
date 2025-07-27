@@ -2,10 +2,10 @@
 
 @layer components {
   .page-title {
-    @apply text-medium mb-3.5 text-3xl font-semibold lg:text-5xl;
+    @apply text-dark mb-3.5 text-3xl font-semibold 2xl:text-4xl;
   }
   .page-subtitle {
-    @apply text-medium mb-3.5 text-xl lg:text-2xl;
+    @apply text-medium mb-3.5 text-xl 2xl:text-2xl;
   }
 }
 
