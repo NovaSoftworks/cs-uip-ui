@@ -4,7 +4,7 @@
   import { navLinks } from '$lib/config/nav';
 
   import NSLogo from '$lib/assets/logo-single-line.svelte';
-  import SettingsIcon from '$lib/assets/icons/pages/settings.svelte';
+  import SettingsIcon from '$lib/assets/icons/settings.svelte';
   import LogoutIcon from '$lib/assets/icons/logout.svelte';
 
   import { page } from '$app/state';
