@@ -29,12 +29,13 @@ This starts the app locally using Vite. The development server respects environm
 
 ## Environment variables
 
-| Variable             | Required?                   | Default            | Description                                                                                                              |
-| -------------------- | --------------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------ |
-| `PUBLIC_BASE_URL`    | Yes, except in offline mode |                    | Public URL where the UI and authentication server are served. Must match your ingress domain.                            |
-| `PUBLIC_ENVIRONMENT` | No                          | `development`      | Use `'offline'` to work locally without contacting remote APIs. Useful for design, mock flows, or testing display logic. |
-| `PUBLIC_LOG_LEVEL`   | No                          | `info`             | Log verbosity (`trace`, `debug`, `info`, `warn`, `error`).                                                               |
-| `PRIVATE_HMAC_SALT`  | No                          | `dev-default-salt` | Secret salt used to hash session identifiers for log correlation. Only available on the server side.                     |
+| Variable                     | Required?                   | Default                 | Description                                                                                                              |
+| ---------------------------- | --------------------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| `PUBLIC_BASE_URL`            | Yes, except in offline mode |                         | Public URL where the UI and authentication server are served. Must match your ingress domain.                            |
+| `PUBLIC_ENVIRONMENT`         | No                          | `development`           | Use `'offline'` to work locally without contacting remote APIs. Useful for design, mock flows, or testing display logic. |
+| `PUBLIC_LOG_LEVEL`           | No                          | `info`                  | Log verbosity (`trace`, `debug`, `info`, `warn`, `error`).                                                               |
+| `PRIVATE_HMAC_SALT`          | No                          | `dev-default-salt`      | Secret salt used to hash session identifiers for log correlation. Only available on the server side.                     |
+| `PRIVATE_ADMIN_API_BASE_URL` | Yes                         | `http://localhost:4434` | URL of the Kratos admin URL. Only available on the server side.                                                          |
 
 You can define these in .env files or pass them directly via your deployment mechanism (Docker, Kubernetes, etc.).
 

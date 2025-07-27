@@ -1,11 +1,13 @@
+import { getIdentityById } from '$lib/server/kratos/admin.js';
 import { createLogger } from '$lib/server/logging';
 
 export const load = async ({ locals, url }) => {
   const logger = createLogger(url.pathname);
 
   const session = locals.session;
-  const credentials = session.identity?.credentials ?? {};
-  const passwordDetails: any = Object.values(credentials)[0];
+
+  const fullIdentity = await getIdentityById(session.identity.id);
+  const passwordDetails: any = fullIdentity?.credentials?.password ?? {};
 
   logger.debug({ session: session.id }, 'Returning user info');
   return {

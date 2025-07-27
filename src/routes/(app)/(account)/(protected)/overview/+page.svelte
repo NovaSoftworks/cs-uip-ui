@@ -14,8 +14,6 @@
   const { locale, firstName, isVerified, passwordLastUpdateTime, lastLoginTime, accountCreationTime, session } = data;
 
   const languageString = supportedLocales.find(l => l.locale === locale)?.displayName;
-
-  console.log(session);
 </script>
 
 <svelte:head>
