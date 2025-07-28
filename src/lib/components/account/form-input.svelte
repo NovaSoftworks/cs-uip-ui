@@ -55,8 +55,8 @@
 {/snippet}
 
 {#if label}
-  <div class="grid items-center sm:grid-cols-[1fr_4fr]">
-    <label for={inputId} class="text-foreground mb-1.75 block text-sm font-medium sm:mb-0">
+  <div class="grid grid-cols-[2fr_4fr] items-center sm:grid-cols-[1fr_4fr]">
+    <label for={inputId} class="text-foreground mb-0 block text-sm font-medium">
       {label}
       {#if inputProps.required}
         <span class="text-ko ml-1">*</span>

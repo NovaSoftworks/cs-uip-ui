@@ -22,15 +22,15 @@
 <div class="bg-light text-darker grid min-h-screen grid-rows-[auto_1fr_auto] lg:grid-cols-[auto_1fr]">
   <Sidebar {sidebarOpen} {closeSidebar} />
 
-  <header class="row-start-1 p-7 lg:col-start-2">
+  <header class="row-start-1 p-3.5 sm:p-7 lg:col-start-2">
     <Header {toggleSidebar} />
   </header>
 
-  <main class="row-start-2 p-7 lg:col-start-2 lg:px-14">
+  <main class="row-start-2 p-3.5 sm:p-7 lg:col-start-2 lg:px-14">
     {@render children()}
   </main>
 
-  <footer class="row-start-3 pb-7 lg:col-start-2">
+  <footer class="row-start-3 p-3.5 sm:p-7 lg:col-start-2">
     <Footer />
   </footer>
 </div>

@@ -2,6 +2,7 @@
   import { t } from '$lib/translations';
   import FormInput from '$lib/components/account/form-input.svelte';
   import FormValue from '$lib/components/account/form-value.svelte';
+  import FormContainer from '$lib/components/account/form-container.svelte';
 
   let { data } = $props();
   const { flow } = data;
@@ -14,17 +15,11 @@
   <title>{$t('pages.details.edit.title')} | Nova Softworks</title>
 </svelte:head>
 
-<h1 class="page-title mb-7">{$t('pages.details.edit.heading')}</h1>
+<h1 class="page-title">{$t('pages.details.edit.heading')}</h1>
 {#each Object.entries(groups) as [groupName, nodes]}
   {#if groupName !== 'default' && nodes}
-    <div class="bg-lighter mb-14 rounded-sm p-7 shadow-sm">
+    <FormContainer title={$t(`pages.details.groups.${groupName}`) || groupName}>
       <form method={flow.ui.method} action={flow.ui.action} class="flex flex-col gap-7">
-        <div class="flex justify-between">
-          <h2 class="text-medium border-b-accent border-b-3 pb-1.75 text-2xl font-semibold">
-            {$t(`pages.details.groups.${groupName}`) || groupName}
-          </h2>
-        </div>
-
         {#if csrf}
           <input type="hidden" name={csrf.attributes.name} value={csrf.attributes.value} />
         {/if}
@@ -56,6 +51,6 @@
           {/if}
         {/each}
       </form>
-    </div>
+    </FormContainer>
   {/if}
 {/each}

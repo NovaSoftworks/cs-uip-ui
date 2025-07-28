@@ -59,7 +59,7 @@
     <Card title="Settings" icon={SettingsIcon}>Test</Card>-->
   </div>
 
-  <div class="grid grid-cols-1 gap-3.5 md:grid-cols-2">
+  <div class="grid grid-cols-1 gap-3.5 xl:grid-cols-2">
     <div class="bg-lighter rounded-sm p-4 shadow-sm"></div>
     <Card icon={TimeIcon}>
       <span slot="title">{$t('pages.overview.activity.title')}</span>
