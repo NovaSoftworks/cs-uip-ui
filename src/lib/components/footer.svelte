@@ -17,7 +17,7 @@
     </li>
   </ul>
   <span class="text-softened text-xs">{$t('layout.footer.copyright')}</span>
-  <ul class="text-softened flex justify-center space-x-1 text-xs">
+  <ul class="text-softened flex flex-wrap justify-center gap-x-1 gap-y-1 text-center text-xs">
     <li>
       <a href="#" class="hover:underline">{$t('layout.footer.legal')}</a>
     </li>
